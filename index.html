@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anatomia Online - Quiz Interativo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <div class="logo-icon">👤</div>
+            <div class="logo-text">
+                <span class="logo-title">Anatomia Online</span>
+                <span class="logo-subtitle">Quiz Interativo</span>
+            </div>
+        </div>
+        <nav>
+            <button id="homeBtn">Início</button>
+            <button id="statsBtn">Estatísticas</button>
+            <button id="logoutBtn" style="display:none;">Trocar Usuário</button>
+        </nav>
+    </header>
+    <main>
+        <!-- Tela Inicial -->
+        <section id="homeContainer">
+            <div class="home-hero">
+                <div class="hero-logo">
+                    <div class="vitruvian-man">👤</div>
+                </div>
+                <h1>Bem-vindo ao Anatomia Online!</h1>
+                <p>Descubra o fascinante mundo da anatomia humana através de quizzes interativos e aprenda de forma
+                    divertida.</p>
+            </div>
+            <ul class="benefits">
+                <li>✔️ Quizzes interativos e educativos</li>
+                <li>✔️ Estatísticas detalhadas do progresso</li>
+                <li>✔️ Feedback imediato e dicas</li>
+                <li>✔️ Interface moderna e responsiva</li>
+            </ul>
+            <button id="startBtn">Começar Quiz Agora</button>
+            <div class="auth-links">
+                <button id="loginShowBtn">Entrar</button>
+                <button id="registerShowBtn">Cadastrar</button>
+            </div>
+        </section>
+        <!-- Formulário de Login -->
+        <section id="loginContainer" class="auth-container" style="display:none;">
+            <h2>Entrar</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="E-mail" required="">
+                <input type="password" id="loginPassword" placeholder="Senha" required="">
+                <button type="submit">Entrar</button>
+            </form>
+            <p class="auth-link">Esqueceu sua senha? <button id="toForgotPasswordBtn" type="button"
+                    class="link-btn">Recuperar senha</button></p>
+            <p>Não tem conta? <button id="toRegisterBtn" type="button">Cadastre-se</button></p>
+            <button id="backHomeFromLogin">Voltar</button>
+        </section>
+
+        <!-- Formulário de Recuperação de Senha -->
+        <section id="forgotPasswordContainer" class="auth-container" style="display:none;">
+            <h2>Recuperar Senha</h2>
+            <p class="auth-description">Digite seu e-mail para receber o link de recuperação</p>
+            <form id="forgotPasswordForm">
+                <input type="email" id="forgotEmail" placeholder="E-mail" required="">
+                <button type="submit">Enviar Link</button>
+            </form>
+            <p class="auth-description" style="font-size: 0.85rem; margin-top: 1rem; color: #a0aec0;">
+                💡 <strong>Desenvolvimento:</strong> Verifique se configurou o localhost no Supabase Dashboard
+                (Authentication → URL Configuration)
+            </p>
+            <p>Lembrou sua senha? <button id="backToLoginBtn" type="button">Voltar ao login</button></p>
+        </section>
+
+        <!-- Formulário de Nova Senha -->
+        <section id="resetPasswordContainer" class="auth-container" style="display:none;">
+            <h2>Nova Senha</h2>
+            <p class="auth-description">Digite sua nova senha</p>
+            <form id="resetPasswordForm">
+                <input type="password" id="newPassword" placeholder="Nova senha" required="" minlength="6">
+                <input type="password" id="confirmPassword" placeholder="Confirme a senha" required="" minlength="6">
+                <button type="submit">Alterar Senha</button>
+            </form>
+        </section>
+
+        <!-- Formulário de Cadastro -->
+        <section id="registerContainer" class="auth-container" style="display:none;">
+            <h2>Cadastrar</h2>
+            <form id="registerForm">
+                <input type="text" id="registerName" placeholder="Nome" required="">
+                <input type="email" id="registerEmail" placeholder="E-mail" required="">
+                <input type="password" id="registerPassword" placeholder="Senha" required="">
+                <button type="submit">Cadastrar</button>
+            </form>
+            <p>Já tem conta? <button id="toLoginBtn" type="button">Entrar</button></p>
+            <button id="backHomeFromRegister">Voltar</button>
+        </section>
+        <!-- Menu Principal -->
+        <section id="menuContainer" style="display:none;">
+            <div class="menu-header">
+                <div class="user-info">
+                    <div class="user-avatar">👤</div>
+                    <div class="user-details">
+                        <h2 id="userGreeting">Olá, Usuário!</h2>
+                        <p class="user-status">Pronto para aprender?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-card" id="quizMenuBtn">
+                    <div class="card-icon">🧠</div>
+                    <div class="card-content">
+                        <h3>Iniciar Quiz</h3>
+                        <p>Escolha uma categoria</p>
+                    </div>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <div class="menu-card" id="statsMenuBtn">
+                    <div class="card-icon">📊</div>
+                    <div class="card-content">
+                        <h3>Estatísticas</h3>
+                        <p>Veja seu progresso</p>
+                    </div>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <div class="menu-card" id="settingsMenuBtn">
+                    <div class="card-icon">⚙️</div>
+                    <div class="card-content">
+                        <h3>Configurações</h3>
+                        <p>Personalize sua experiência</p>
+                    </div>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <!-- Apenas para admin -->
+                <div class="menu-card" id="adminPanelBtn" style="display:none;">
+                    <div class="card-icon">🛠️</div>
+                    <div class="card-content">
+                        <h3>Painel Admin</h3>
+                        <p>Gerencie as questões</p>
+                    </div>
+                    <div class="card-arrow">→</div>
+                </div>
+
+                <div class="menu-card logout-card" id="logoutMenuBtn">
+                    <div class="card-icon">🚪</div>
+                    <div class="card-content">
+                        <h3>Trocar Usuário</h3>
+                        <p>Sair da conta atual</p>
+                    </div>
+                    <div class="card-arrow">→</div>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <div class="quick-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="totalAttempts">0</span>
+                        <span class="stat-label">Tentativas</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="bestScore">0</span>
+                        <span class="stat-label">Melhor</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="avgScore">0</span>
+                        <span class="stat-label">Média</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Seleção de Categoria -->
+        <section id="categoryContainer" style="display:none;">
+            <h2>Escolha uma Categoria</h2>
+            <div class="category-grid">
+                <div class="category-card" id="superioresBtn">
+                    <div class="category-icon">🦴</div>
+                    <div class="category-content">
+                        <h3>Membros Superiores</h3>
+                        <p>Braços, ombros e mãos</p>
+                        <div class="category-stats">
+                            <span class="stat">1 pergunta</span>
+                            <span class="difficulty-badge difficulty-facil">Fácil</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-card" id="inferioresBtn">
+                    <div class="category-icon">🦵</div>
+                    <div class="category-content">
+                        <h3>Membros Inferiores</h3>
+                        <p>Pernas, quadris e pés</p>
+                        <div class="category-stats">
+                            <span class="stat">1 pergunta</span>
+                            <span class="difficulty-badge difficulty-medio">Médio</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-card" id="coracaoBtn">
+                    <div class="category-icon">❤️</div>
+                    <div class="category-content">
+                        <h3>Coração</h3>
+                        <p>Anatomia e estruturas cardíacas</p>
+                        <div class="category-stats">
+                            <span class="stat">26 perguntas</span>
+                            <span class="difficulty-badge difficulty-medio">Médio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="backToMenuBtn">Voltar ao Menu</button>
+        </section>
+
+        <!-- Seleção de Tipo de Questão (Imagens vs Teóricas) -->
+        <section id="typeContainer" style="display:none;">
+            <h2 id="typeTitle">Selecione o Tipo de Questão</h2>
+            <div class="category-grid">
+                <div class="category-card" id="imagemBtn">
+                    <div class="category-icon">🖼️</div>
+                    <div class="category-content">
+                        <h3>Questões com Imagens</h3>
+                        <p>Identificação de estruturas anatômicas</p>
+                        <div class="category-stats">
+                            <span class="stat"><span id="imagemCount">0</span> perguntas</span>
+                            <span class="difficulty-badge difficulty-medio">VISUAL</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-card" id="teoricaBtn">
+                    <div class="category-icon">📚</div>
+                    <div class="category-content">
+                        <h3>Questões Teóricas</h3>
+                        <p>Origem, inserção, ação e inervação</p>
+                        <div class="category-stats">
+                            <span class="stat"><span id="teoricaCount">0</span> perguntas</span>
+                            <span class="difficulty-badge difficulty-dificil">TEÓRICO</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="backToCategoryFromTypeBtn">Voltar</button>
+        </section>
+
+        <!-- Seleção de Quantidade de Questões -->
+        <section id="quantityContainer" style="display:none;">
+            <h2>Quantas questões deseja responder?</h2>
+            <p style="text-align:center; margin-bottom:1.5rem; opacity:0.8;">
+                As questões serão selecionadas aleatoriamente
+            </p>
+            <div class="quantity-grid">
+                <button class="quantity-card" data-quantity="5">
+                    <div class="quantity-number">5</div>
+                    <div class="quantity-label">Questões</div>
+                    <div class="quantity-time">⏱️ ~5 min</div>
+                </button>
+                <button class="quantity-card" data-quantity="10">
+                    <div class="quantity-number">10</div>
+                    <div class="quantity-label">Questões</div>
+                    <div class="quantity-time">⏱️ ~10 min</div>
+                </button>
+                <button class="quantity-card" data-quantity="20">
+                    <div class="quantity-number">20</div>
+                    <div class="quantity-label">Questões</div>
+                    <div class="quantity-time">⏱️ ~20 min</div>
+                </button>
+                <button class="quantity-card" data-quantity="30">
+                    <div class="quantity-number">30</div>
+                    <div class="quantity-label">Questões</div>
+                    <div class="quantity-time">⏱️ ~30 min</div>
+                </button>
+                <button class="quantity-card" data-quantity="all">
+                    <div class="quantity-number">📚</div>
+                    <div class="quantity-label">Todas</div>
+                    <div class="quantity-time" id="allQuestionsCount">Disponíveis</div>
+                </button>
+            </div>
+            <button id="backToCategoryBtn">Voltar</button>
+        </section>
+
+        <!-- Quiz -->
+        <section id="quizContainer" style="display:none;">
+            <div class="quiz-header">
+                <h2 id="quizTitle">Quiz de Anatomia</h2>
+                <div class="quiz-progress">
+                    <span id="currentQuestion">1</span> / <span id="totalQuestions">10</span>
+                </div>
+            </div>
+
+            <!-- Barra de Progresso -->
+            <div class="progress-container">
+                <div class="progress-bar">
+                    <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div class="progress-text">
+                    <span id="progressPercentage">10%</span>
+                </div>
+            </div>
+
+            <div class="quiz-image-container">
+                <img id="quizImage" src="" alt="Imagem do quiz" style="display:none;">
+            </div>
+            <div id="quizQuestion"></div>
+            <div id="quizOptions"></div>
+            <div id="quizFeedback"></div>
+            <div id="quizExplanation" class="explanation-box" style="display:none;"></div>
+            <div class="quiz-controls">
+                <button id="nextQuestionBtn" style="display:none;">Próxima</button>
+                <button id="backMenuBtn">Menu</button>
+            </div>
+        </section>
+        <!-- Modal de Configurações -->
+        <div id="settingsModal" class="settings-modal" style="display:none;">
+            <div class="settings-overlay" id="settingsOverlay"></div>
+            <div class="settings-panel">
+                <div class="settings-header">
+                    <h2>⚙️ Configurações</h2>
+                    <button class="settings-close" id="closeSettingsModal">×</button>
+                </div>
+                <div class="settings-body">
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <span class="setting-icon">🎨</span>
+                            <span class="setting-text">Tema</span>
+                        </label>
+                        <select id="themeSelect" class="setting-select">
+                            <option value="light">☀️ Claro</option>
+                            <option value="dark">🌙 Escuro</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-label">
+                            <span class="setting-icon">📏</span>
+                            <span class="setting-text">Tamanho da fonte</span>
+                        </label>
+                        <select id="fontSizeSelect" class="setting-select">
+                            <option value="small">Pequeno</option>
+                            <option value="medium" selected>Médio</option>
+                            <option value="large">Grande</option>
+                        </select>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-checkbox">
+                            <input type="checkbox" id="autoExplanation">
+                            <span class="checkbox-label">
+                                <span class="setting-icon">📖</span>
+                                <span class="setting-text">Mostrar explicação automaticamente</span>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="setting-group">
+                        <label class="setting-checkbox">
+                            <input type="checkbox" id="soundEffects">
+                            <span class="checkbox-label">
+                                <span class="setting-icon">🔊</span>
+                                <span class="setting-text">Sons de acerto/erro</span>
+                            </span>
+                        </label>
+                    </div>
+
+                    <div class="setting-group">
+                        <button type="button" id="reviewTutorialBtn" class="btn-tutorial">
+                            🎓 Rever Tutorial
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-footer">
+                    <button type="button" id="confirmSettingsBtn" class="btn-confirm">
+                        ✓ Salvar Configurações
+                    </button>
+                    <button type="button" id="resetProgressBtn" class="btn-reset">
+                        🔄 Resetar Progresso
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Estatísticas -->
+        <section id="statsContainer" style="display:none;">
+            <h2>Estatísticas</h2>
+            <div class="stats-controls">
+                <label>
+                    Categoria:
+                    <select id="statsCategoryFilter">
+                        <option value="all">Todas as Categorias</option>
+                        <option value="superiores">Membros Superiores</option>
+                        <option value="inferiores">Membros Inferiores</option>
+                        <option value="coracao">Coração</option>
+                    </select>
+                </label>
+                <label>
+                    Período:
+                    <select id="statsTimeFilter">
+                        <option value="all">Todos os tempos</option>
+                        <option value="7">Últimos 7 dias</option>
+                        <option value="30">Últimos 30 dias</option>
+                        <option value="90">Últimos 90 dias</option>
+                    </select>
+                </label>
+            </div>
+            <div class="stats-chart-card">
+                <canvas id="evolutionChart" height="220"></canvas>
+            </div>
+            <div id="statsContent"></div>
+            <button id="backStatsBtn">Menu</button>
+        </section>
+        <!-- Mensagens e Dicas -->
+        <div id="messageContainer"></div>
+    </main>
+
+    <!-- Modal de Aviso -->
+    <div id="warningModal" class="modal">
+        <div class="modal-content-warning">
+            <div class="warning-icon">🚧</div>
+            <h3>Em Desenvolvimento</h3>
+            <p id="warningMessage">Esta seção está sendo preparada e estará disponível em breve.</p>
+            <button id="closeWarningBtn" class="btn-warning-ok">Entendi</button>
+        </div>
+    </div>
+
+    <!-- Modal do Tutorial Interativo -->
+    <div id="tutorialModal" class="modal tutorial-modal" style="display:none;">
+        <div class="tutorial-content">
+            <div class="tutorial-header">
+                <h2>🎓 Tutorial - Bem-vindo!</h2>
+                <span class="tutorial-step" id="tutorialStepIndicator">1 / 5</span>
+            </div>
+            <div class="tutorial-body">
+                <div class="tutorial-icon" id="tutorialIcon">📚</div>
+                <h3 id="tutorialTitle">Escolha uma Categoria</h3>
+                <p id="tutorialDescription">
+                    Selecione entre Membros Superiores, Membros Inferiores ou Coração para começar seus estudos.
+                </p>
+                <div class="tutorial-highlight" id="tutorialHighlight"></div>
+            </div>
+            <div class="tutorial-footer">
+                <button id="tutorialSkipBtn" class="tutorial-btn-secondary">Pular Tutorial</button>
+                <div class="tutorial-navigation">
+                    <button id="tutorialPrevBtn" class="tutorial-btn-nav" style="display:none;">← Anterior</button>
+                    <button id="tutorialNextBtn" class="tutorial-btn-primary">Próximo →</button>
+                </div>
+            </div>
+            <div class="tutorial-dots" id="tutorialDots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para ampliar imagem -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">×</span>
+            <img id="modalImage" src="" alt="Imagem ampliada">
+        </div>
+    </div>
+
+    <!-- Supabase (UMD build via jsdelivr para garantir o global `window.supabase`) -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script>
+        // Configuração do Supabase (chaves já incluídas no código)
+        window.SUPABASE_URL = 'https://nromzokjnzzuwhalulut.supabase.co';
+        window.SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5yb216b2tqbnp6dXdoYWx1bHV0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE1MTY4NjYsImV4cCI6MjA3NzA5Mjg2Nn0.Ejo648JfYujvUgjBgXA3fM4lC81o05X9HWrcFdR_sgA';
+        if (window.SUPABASE_URL && window.SUPABASE_ANON && window.supabase) {
+            window.supabaseClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_ANON);
+            console.log('✅ Supabase client inicializado');
+        } else {
+            console.error('❌ Falha ao inicializar Supabase');
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/api_supabase.js"></script>
+    <script src="js/quiz_data.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
