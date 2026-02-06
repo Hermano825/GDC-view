@@ -854,6 +854,12 @@ if (startBtn) startBtn.onclick = () => {
 };
 if (loginShowBtn) loginShowBtn.onclick = () => { showOnly(loginContainer); };
 if (registerShowBtn) registerShowBtn.onclick = () => { showOnly(registerContainer); };
+if (toRegisterBtn) toRegisterBtn.onclick = () => { showOnly(registerContainer); };
+if (toLoginBtn) toLoginBtn.onclick = () => { showOnly(loginContainer); };
+if (toForgotPasswordBtn) toForgotPasswordBtn.onclick = () => { showOnly(forgotPasswordContainer); };
+if (backToLoginBtn) backToLoginBtn.onclick = () => { showOnly(loginContainer); };
+if (backHomeFromLogin) backHomeFromLogin.onclick = () => { showOnly(homeContainer); };
+if (backHomeFromRegister) backHomeFromRegister.onclick = () => { showOnly(homeContainer); };
 
 // Menu
 if (quizMenuBtn) quizMenuBtn.onclick = () => { updateCategoryCounts(); showOnly(categoryContainer); };
