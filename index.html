@@ -224,6 +224,48 @@
             <button id="backToMenuBtn">Voltar ao Menu</button>
         </section>
 
+        <!-- Subcategorias — Membros Superiores -->
+        <section id="superioresSubcategoryContainer" style="display:none;">
+            <h2>Membros Superiores</h2>
+            <p style="text-align:center; opacity:0.8; margin-bottom:1rem;">Escolha o sistema anatômico</p>
+            <div class="category-grid">
+                <div class="category-card" id="superioresOssosBtn">
+                    <div class="category-icon">🦴</div>
+                    <div class="category-content">
+                        <h3>Ossos</h3>
+                        <p>Escápula, úmero, rádio, ulna e mão</p>
+                        <div class="category-stats">
+                            <span class="stat" id="superioresOssosStat">0 perguntas</span>
+                            <span class="difficulty-badge difficulty-facil">Fácil</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-card" id="superioresMusculosBtn">
+                    <div class="category-icon">💪</div>
+                    <div class="category-content">
+                        <h3>Músculos</h3>
+                        <p>Manguito rotador, bíceps, tríceps e mais</p>
+                        <div class="category-stats">
+                            <span class="stat" id="superioresMusculosStat">0 perguntas</span>
+                            <span class="difficulty-badge difficulty-medio">Médio</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="category-card" id="superioresVasosNervosBtn">
+                    <div class="category-icon">🩸</div>
+                    <div class="category-content">
+                        <h3>Vasos e Nervos</h3>
+                        <p>Plexo braquial, artérias e veias</p>
+                        <div class="category-stats">
+                            <span class="stat">Em breve</span>
+                            <span class="difficulty-badge difficulty-dificil">Difícil</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="backToCategoryFromSubcategoryBtn">Voltar</button>
+        </section>
+
         <!-- Seleção de Tipo de Questão (Imagens vs Teóricas) -->
         <section id="typeContainer" style="display:none;">
             <h2 id="typeTitle">Selecione o Tipo de Questão</h2>
@@ -401,7 +443,9 @@
                     Categoria:
                     <select id="statsCategoryFilter">
                         <option value="all">Todas as Categorias</option>
-                        <option value="superiores">Membros Superiores</option>
+                        <option value="superioresOssos">Membros Superiores — Ossos</option>
+                        <option value="superioresMusculos">Membros Superiores — Músculos</option>
+                        <option value="superioresVasosNervos">Membros Superiores — Vasos e Nervos</option>
                         <option value="inferiores">Membros Inferiores</option>
                         <option value="coracao">Coração</option>
                     </select>

@@ -135,6 +135,12 @@ const superioresBtn = document.getElementById('superioresBtn');
 const inferioresBtn = document.getElementById('inferioresBtn');
 const coracaoBtn = document.getElementById('coracaoBtn');
 // mediastinoBtn removido: mediastino fica dentro de Coração
+// Subcategorias — Membros Superiores
+const superioresSubcategoryContainer = document.getElementById('superioresSubcategoryContainer');
+const superioresOssosBtn = document.getElementById('superioresOssosBtn');
+const superioresMusculosBtn = document.getElementById('superioresMusculosBtn');
+const superioresVasosNervosBtn = document.getElementById('superioresVasosNervosBtn');
+const backToCategoryFromSubcategoryBtn = document.getElementById('backToCategoryFromSubcategoryBtn');
 const imagemBtn = document.getElementById('imagemBtn');
 const teoricaBtn = document.getElementById('teoricaBtn');
 const backToCategoryFromTypeBtn = document.getElementById('backToCategoryFromTypeBtn');
@@ -211,6 +217,9 @@ function selectCategory(category) {
     if (typeTitle) {
         const categoryNames = {
             'superiores': 'Membros Superiores',
+            'superioresOssos': 'Membros Superiores — Ossos',
+            'superioresMusculos': 'Membros Superiores — Músculos',
+            'superioresVasosNervos': 'Membros Superiores — Vasos e Nervos',
             'inferiores': 'Membros Inferiores',
             'coracao': 'Coração'
         };
@@ -224,8 +233,13 @@ function selectCategory(category) {
         imagemCount.textContent = imagemData.length;
     }
     
-    // Contar questões teóricas
-    const teoricaKey = category + 'Teorico';
+    // Resolver chave teórica (subcategorias de superiores compartilham superioresTeorico)
+    const teoricaOverride = {
+        'superioresOssos': 'superioresTeorico',
+        'superioresMusculos': 'superioresTeorico',
+        'superioresVasosNervos': 'superioresTeorico'
+    };
+    const teoricaKey = teoricaOverride[category] || (category + 'Teorico');
     const teoricaData = quizData[teoricaKey] ? quizData[teoricaKey].filter(question => !question.disabled) : [];
     const teoricaCount = document.getElementById('teoricaCount');
     if (teoricaCount) {
@@ -241,8 +255,13 @@ function selectType(type) {
     
     currentType = type;
     
-    // Determinar chave de dados
-    const dataKey = type === 'teorica' ? currentCategory + 'Teorico' : currentCategory;
+    // Determinar chave de dados (subcategorias de superiores compartilham la mesma base teórica)
+    const _teoricaOverride = {
+        'superioresOssos': 'superioresTeorico',
+        'superioresMusculos': 'superioresTeorico',
+        'superioresVasosNervos': 'superioresTeorico'
+    };
+    const dataKey = type === 'teorica' ? (_teoricaOverride[currentCategory] || currentCategory + 'Teorico') : currentCategory;
     console.log('[DEBUG] dataKey:', dataKey);
     console.log('[DEBUG] quizData[dataKey] existe?', !!quizData[dataKey]);
     
@@ -305,11 +324,14 @@ function startQuiz() {
     
     const categoryNames = {
         'superiores': 'Membros Superiores',
+        'superioresOssos': 'Membros Superiores — Ossos',
+        'superioresMusculos': 'Membros Superiores — Músculos',
+        'superioresVasosNervos': 'Membros Superiores — Vasos e Nervos',
         'inferiores': 'Membros Inferiores',
         'coracao': 'Coração'
     };
     
-    if (quizTitle) quizTitle.textContent = 'Quiz: ' + categoryNames[currentCategory];
+    if (quizTitle) quizTitle.textContent = 'Quiz: ' + (categoryNames[currentCategory] || currentCategory);
     
     // Resetar barra de progresso
     if (progressFill) progressFill.style.width = '0%';
@@ -615,7 +637,7 @@ function closeWarningModal() {
 // ========================================
 // Utilitarios de navegacao
 function showOnly(container) {
-    [homeContainer, loginContainer, registerContainer, forgotPasswordContainer, resetPasswordContainer, menuContainer, categoryContainer, typeContainer, quantityContainer, quizContainer, statsContainer, adminPanelContainer].forEach(c => {
+    [homeContainer, loginContainer, registerContainer, forgotPasswordContainer, resetPasswordContainer, menuContainer, categoryContainer, superioresSubcategoryContainer, typeContainer, quantityContainer, quizContainer, statsContainer, adminPanelContainer].forEach(c => {
         if (c) c.style.display = 'none';
     });
     if (container) container.style.display = 'flex';
@@ -1010,13 +1032,26 @@ document.getElementById('fontSizeSelect')?.addEventListener('change', (e) => {
 });
 
 // Categorias
-if (superioresBtn) superioresBtn.onclick = () => { selectCategory('superiores'); };
+if (superioresBtn) superioresBtn.onclick = () => { showOnly(superioresSubcategoryContainer); };
 if (inferioresBtn) inferioresBtn.onclick = () => { selectCategory('inferiores'); };
 if (coracaoBtn) coracaoBtn.onclick = () => { selectCategory('coracao'); };
 // mediastinoBtn removido: usar categoria 'coracao' com teóricas
 if (backToMenuBtn) backToMenuBtn.onclick = () => { showOnly(menuContainer); };
 if (backToCategoryBtn) backToCategoryBtn.onclick = () => { showOnly(typeContainer); };
 if (backToCategoryFromTypeBtn) backToCategoryFromTypeBtn.onclick = () => { showOnly(categoryContainer); };
+
+// Subcategorias — Membros Superiores
+if (superioresOssosBtn) superioresOssosBtn.onclick = () => { selectCategory('superioresOssos'); };
+if (superioresMusculosBtn) superioresMusculosBtn.onclick = () => { selectCategory('superioresMusculos'); };
+if (superioresVasosNervosBtn) superioresVasosNervosBtn.onclick = () => {
+    const count = (quizData.superioresVasosNervos || []).length;
+    if (count === 0) {
+        showMessage('Vasos e Nervos estará disponível em breve!', '#1976d2');
+        return;
+    }
+    selectCategory('superioresVasosNervos');
+};
+if (backToCategoryFromSubcategoryBtn) backToCategoryFromSubcategoryBtn.onclick = () => { showOnly(categoryContainer); };
 
 // Tipo de questão (imagem ou teórica)
 if (imagemBtn) {
@@ -1276,10 +1311,16 @@ function updateCategoryCounts() {
     if (supCard) {
         const stat = supCard.querySelector('.category-stats .stat');
         if (stat) {
-            const count = (quizData.superiores || []).filter(q => !q.disabled).length;
-            stat.textContent = format(count);
+            const countOssos = (quizData.superioresOssos || []).filter(q => !q.disabled).length;
+            const countMusc = (quizData.superioresMusculos || []).filter(q => !q.disabled).length;
+            const total = countOssos + countMusc;
+            stat.textContent = format(total);
         }
     }
+    const ossosStatEl = document.getElementById('superioresOssosStat');
+    if (ossosStatEl) ossosStatEl.textContent = format((quizData.superioresOssos || []).filter(q => !q.disabled).length);
+    const muscStatEl = document.getElementById('superioresMusculosStat');
+    if (muscStatEl) muscStatEl.textContent = format((quizData.superioresMusculos || []).filter(q => !q.disabled).length);
     if (infCard) {
         const stat = infCard.querySelector('.category-stats .stat');
         if (stat) {

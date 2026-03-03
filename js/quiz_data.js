@@ -832,7 +832,7 @@ Mais profundo dos isquiotibiais mediais; possui longo tendão proximal membraná
         // ...existing code...
     ],
 
-    superiores: [
+    superioresOssos: [
 
         // ========================================
         // IMAGEM 1 — Escápula e Úmero (vista geral)
@@ -2431,6 +2431,453 @@ Fratura do piramidal é a <strong>segunda fratura de carpo mais comum</strong> (
         })(),
 
     ],
+
+    superioresMusculos: [
+
+        // ========================================
+        // IMAGEM 6 — Músculo Trapézio
+        // ========================================
+        (function() {
+            const opts = ['Trapézio', 'Latíssimo do dorso', 'Levantador da escápula', 'Rombóide maior'];
+            const correct = 'Trapézio';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior6.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Trapézio<br>
+<strong>Origem:</strong> Protuberância occipital externa, ligamento nucal, processos espinhosos de C7-T12<br>
+<strong>Inserção:</strong> Terço lateral da clavícula, acrômio e espinha da escápula<br>
+<strong>Ação:</strong><br>
+&nbsp;&nbsp;• Fibras superiores: elevação da escápula e inclinação lateral da cabeça<br>
+&nbsp;&nbsp;• Fibras médias: retração da escápula<br>
+&nbsp;&nbsp;• Fibras inferiores: depressão da escápula e rotação superior<br>
+<strong>Inervação:</strong> Nervo acessório (NC XI) + ramos ventrais de C3-C4
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Lesão do <strong>nervo acessório (NC XI)</strong> — tipicamente em dissecção cervical ou trauma — causa paralisia do trapézio: ombro caído, escápula alada inferior, dificuldade em abduzir o braço acima de 90°. Dor crônica no pescoço e ombro é sequela comum. O trapézio superior é alvo de toxina botulínica no tratamento de cefaleia tensional e distonia cervical.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 7 — Músculo Latíssimo do Dorso
+        // ========================================
+        (function() {
+            const opts = ['Latíssimo do dorso', 'Trapézio', 'Redondo maior', 'Serrátil anterior'];
+            const correct = 'Latíssimo do dorso';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior7.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Latíssimo do dorso<br>
+<strong>Origem:</strong> Processos espinhosos de T7-L5, crista do sacro, crista ilíaca posterior, costelas inferiores<br>
+<strong>Inserção:</strong> Sulco intertubercular do úmero (assoalho)<br>
+<strong>Ação:</strong> Extensão, adução e rotação medial do braço; auxilia na inspiração forçada e na tosse<br>
+<strong>Inervação:</strong> Nervo toracodorsal (C6-C8)<br>
+<strong>Mnemônico:</strong> "Latíssimo leva o braço para baixo e para dentro"
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O latíssimo do dorso é amplamente usado em <strong>cirurgias reconstrutivas</strong>: retalho miocutâneo para reconstrução mamária após mastectomia (retalho LD) e retalho muscular livre para cobertura de defeitos complexos. É o principal músculo do movimento de braçada no nado crawl e do movimento de tração (puxar barra). Lesão em arremessadores causa dor axilar posterior.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 8 — Músculo Levantador da Escápula
+        // ========================================
+        (function() {
+            const opts = ['Levantador da escápula', 'Trapézio', 'Esplênio do pescoço', 'Rombóide menor'];
+            const correct = 'Levantador da escápula';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior8.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Levantador da escápula (Elevador da escápula)<br>
+<strong>Origem:</strong> Tubérculos posteriores dos processos transversos de C1-C4<br>
+<strong>Inserção:</strong> Borda medial da escápula, entre o ângulo superior e a espinha<br>
+<strong>Ação:</strong> Elevação da escápula; rotação inferior da cavidade glenoidal (inclina o ângulo inferior medialmente)<br>
+<strong>Inervação:</strong> Nervo dorsal da escápula (C4-C5) + ramos diretos de C3-C4
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Tensão e dor no levantador da escápula é causa extremamente comum de <strong>cervicalgia e dor no ombro</strong>, especialmente em trabalhadores de escritório com postura inadequada. O ponto de inserção no ângulo superior da escápula é palpável e frequentemente ponto-gatilho miofascial. Infiltração com anestésico local ou toxina botulínica pode ser eficaz em casos refratários.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 9 — Músculo Deltóide
+        // ========================================
+        (function() {
+            const opts = ['Deltóide', 'Supraespinhal', 'Infra espinhal', 'Redondo menor'];
+            const correct = 'Deltóide';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior9.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Deltóide<br>
+<strong>Origem:</strong> Terço lateral da clavícula (feixe anterior), acrômio (feixe médio), espinha da escápula (feixe posterior)<br>
+<strong>Inserção:</strong> Tuberosidade deltóidea do úmero<br>
+<strong>Ação:</strong><br>
+&nbsp;&nbsp;• Feixe anterior: flexão e rotação medial do braço<br>
+&nbsp;&nbsp;• Feixe médio: abdução do braço (15–90°)<br>
+&nbsp;&nbsp;• Feixe posterior: extensão e rotação lateral do braço<br>
+<strong>Inervação:</strong> Nervo axilar (C5-C6)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Lesão do <strong>nervo axilar</strong> (luxação anterior do ombro, fratura do colo cirúrgico do úmero) causa paralisia do deltóide e redondo menor. O paciente perde a abdução ativa entre 15–90° (os primeiros 15° são mantidos pelo supraespinhal via nervo supraescapular). Hipoestesia em "distintivo militar" (região lateral do ombro) é o sinal sensitivo característico.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 10 — Supraespinhal (#1) e Infraespinhal (#2)
+        // ========================================
+        (function() {
+            const opts = ['Supraespinhal', 'Infraespinhal', 'Redondo menor', 'Subescapular'];
+            const correct = 'Supraespinhal';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior10.png',
+                question: 'Qual é o músculo indicado pelo número 1 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Supraespinhal<br>
+<strong>Origem:</strong> Fossa supraespinal da escápula<br>
+<strong>Inserção:</strong> Faceta superior do tubérculo maior do úmero<br>
+<strong>Ação:</strong> Inicia a abdução do braço (0–15°) e estabiliza a cabeça do úmero na cavidade glenoidal<br>
+<strong>Inervação:</strong> Nervo supraescapular (C4-C6)<br>
+<strong>Trajeto:</strong> Passa sob o arco coracoacromial (espaço subacromial)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O supraespinhal é o músculo mais frequentemente lesionado do manguito rotador, por compressão no espaço subacromial. Rupturas parciais ou completas causam fraqueza na abdução e dor no <strong>arco doloroso</strong> (60–120°). O <strong>teste de Jobe</strong> (abdução resistida a 90° em espinha da escápula com polegar voltado para baixo) avalia seletivamente o supraespinhal.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+        (function() {
+            const opts = ['Infraespinhal', 'Supraespinhal', 'Redondo menor', 'Redondo maior'];
+            const correct = 'Infraespinhal';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior10.png',
+                question: 'Qual é o músculo indicado pelo número 2 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Infraespinhal<br>
+<strong>Origem:</strong> Fossa infraespinal da escápula (face posterior, abaixo da espinha)<br>
+<strong>Inserção:</strong> Faceta média do tubérculo maior do úmero<br>
+<strong>Ação:</strong> Rotação lateral e adução do braço; estabilização posterior da articulação glenoumeral<br>
+<strong>Inervação:</strong> Nervo supraescapular (C5-C6) — ramo que passa pela incisura espinoglenóidea
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O <strong>teste da rotação lateral resistida</strong> (cotovelo a 90°, resistência à rotação externa) avalia o infraespinhal. Atrofia visível da fossa infraespinal sugere lesão do nervo supraescapular distal (incisura espinoglenóidea) ou ruptura maciça do infraespinhal. Compressão por cisto ganglionar é causa comum em voleibolistas.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 11 — Redondo Menor (#1) e Redondo Maior (#2)
+        // ========================================
+        (function() {
+            const opts = ['Redondo menor', 'Redondo maior', 'Infraespinhal', 'Subescapular'];
+            const correct = 'Redondo menor';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior11.png',
+                question: 'Qual é o músculo indicado pelo número 1 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Redondo menor<br>
+<strong>Origem:</strong> Face posterior da borda lateral da escápula (porção superior)<br>
+<strong>Inserção:</strong> Faceta inferior do tubérculo maior do úmero<br>
+<strong>Ação:</strong> Rotação lateral do braço; componente do manguito rotador<br>
+<strong>Inervação:</strong> Nervo axilar (C5-C6) — mesma inervação do deltóide<br>
+<strong>Distinção do redondo maior:</strong> Redondo menor → manguito rotador + rotação lateral; redondo maior → NÃO é manguito + rotação medial
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Lesão isolada do redondo menor é incomum mas pode ocorrer por compressão do ramo posterior do nervo axilar no <strong>espaço quadrangular</strong> (síndrome do espaço quadrangular), causando atrofia seletiva do redondo menor na RM e dor difusa posterior no ombro em arremessadores.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+        (function() {
+            const opts = ['Redondo maior', 'Redondo menor', 'Latíssimo do dorso', 'Subescapular'];
+            const correct = 'Redondo maior';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior11.png',
+                question: 'Qual é o músculo indicado pelo número 2 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Redondo maior<br>
+<strong>Origem:</strong> Face posterior do ângulo inferior da escápula<br>
+<strong>Inserção:</strong> Crista do tubérculo menor do úmero (sulco intertubercular — parede medial)<br>
+<strong>Ação:</strong> Extensão, adução e rotação medial do braço — "braço de assistente do latíssimo"<br>
+<strong>Inervação:</strong> Nervo subescapular inferior (C5-C6)<br>
+<strong>Importante:</strong> NÃO faz parte do manguito rotador (não cobre a articulação glenoumeral)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O redondo maior, junto com o latíssimo do dorso, forma a <strong>prega axilar posterior</strong>. Esses dois músculos são separados cirurgicamente na abordagem posterior do ombro. Em atletas de arremesso, lesões por tração do redondo maior causam dor axilar posterior e fraqueza na extensão e rotação medial do braço.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 12 — Músculo Subescapular
+        // ========================================
+        (function() {
+            const opts = ['Subescapular', 'Supraespinhal', 'Redondo menor', 'Coracobraquial'];
+            const correct = 'Subescapular';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior12.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Subescapular<br>
+<strong>Origem:</strong> Fossa subescapular (face anterior/costal da escápula)<br>
+<strong>Inserção:</strong> Tubérculo menor do úmero<br>
+<strong>Ação:</strong> Rotação medial e adução do braço; único componente anterior do manguito rotador<br>
+<strong>Inervação:</strong> Nervos subescapulares superior e inferior (C5-C6)<br>
+<strong>Destaque:</strong> Único dos 4 músculos do manguito rotador que insere no tubérculo MENOR
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Lesões do subescapular são frequentemente subdiagnosticadas. O <strong>sinal do belly-press</strong> (incapacidade de pressionar o abdome sem extensão do punho) e o <strong>sinal do lift-off de Gerber</strong> (incapacidade de afastar a mão das costas) avaliam seletivamente este músculo. Rupturas causam instabilidade anterior do ombro e deformidade em "espiral" do bíceps.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 13 — Músculo Bíceps Braquial
+        // ========================================
+        (function() {
+            const opts = ['Bíceps braquial', 'Braquial', 'Coracobraquial', 'Tríceps braquial'];
+            const correct = 'Bíceps braquial';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior13.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Bíceps braquial<br>
+<strong>Origem:</strong><br>
+&nbsp;&nbsp;• Cabeça longa: tubérculo supraglenoidal da escápula (intracapsular)<br>
+&nbsp;&nbsp;• Cabeça curta: processo coracoide da escápula<br>
+<strong>Inserção:</strong> Tuberosidade do rádio e fáscia do antebraço (aponeurose bicipital)<br>
+<strong>Ação:</strong> Flexão do cotovelo, supinação do antebraço e fraca flexão do ombro<br>
+<strong>Inervação:</strong> Nervo musculocutâneo (C5-C6)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Ruptura da cabeça longa do bíceps causa o sinal do "<strong>Popeye</strong>" (bola muscular proximal). Ruptura do tendão distal (tuberosidade radial) causa maior perda funcional: ~50% da supinação e ~30% da flexão. O <strong>teste de Speed</strong> (dor na flexão resistida do ombro com antebraço supinado) e o <strong>teste de Yergason</strong> avaliam o tendão da cabeça longa.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 14 — Músculo Coracobraquial
+        // ========================================
+        (function() {
+            const opts = ['Coracobraquial', 'Bíceps braquial', 'Braquial', 'Deltóide'];
+            const correct = 'Coracobraquial';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior14.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Coracobraquial<br>
+<strong>Origem:</strong> Processo coracoide da escápula (junto com a cabeça curta do bíceps)<br>
+<strong>Inserção:</strong> Face medial da diáfise do úmero (terço médio)<br>
+<strong>Ação:</strong> Flexão e adução do braço; estabilização anterior do ombro<br>
+<strong>Inervação:</strong> Nervo musculocutâneo (C5-C7) — o nervo perfura o coracobraquial para chegar ao músculo braquial<br>
+<strong>Relação anatômica:</strong> O nervo musculocutâneo penetra diretamente neste músculo
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Compressão do nervo musculocutâneo dentro ou ao nível do coracobraquial (por hipertrofia muscular ou trauma) causa <strong>síndrome do nervo musculocutâneo</strong>: fraqueza de flexão do cotovelo, fraqueza de supinação e parestesia no antebraço lateral (nervo cutâneo lateral do antebraço). Mais comum em fisiculturistas e arremessadores.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 15 — Músculo Braquial
+        // ========================================
+        (function() {
+            const opts = ['Braquial', 'Bíceps braquial', 'Coracobraquial', 'Braquiorradial'];
+            const correct = 'Braquial';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior15.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Braquial<br>
+<strong>Origem:</strong> Metade distal da face anterior do úmero (abaixo da tuberosidade deltóidea)<br>
+<strong>Inserção:</strong> Tuberosidade da ulna e processo coronóide<br>
+<strong>Ação:</strong> Flexão do cotovelo — único flexor puro (atua em todas as posições de rotação do antebraço)<br>
+<strong>Inervação:</strong> Nervo musculocutâneo (C5-C6) + pequeno ramo do nervo radial (C7)<br>
+<strong>Destaque:</strong> Considerado o "cavalo de batalha" da flexão do cotovelo
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+A <strong>miosite ossificante traumática</strong> do braquial é uma complicação clássica após fraturas do cotovelo ou manipulação agressiva pós-imobilização. Calcificação intramuscular progressiva limita a flexão do cotovelo. Prevenção: mobilização precoce gentil. Ressecção cirúrgica apenas após maturação completa da calcificação (12–18 meses).
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 16 — Tríceps Braquial (#1) e Ancôneo (#2)
+        // ========================================
+        (function() {
+            const opts = ['Tríceps braquial', 'Bíceps braquial', 'Braquial', 'Ancôneo'];
+            const correct = 'Tríceps braquial';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior16.png',
+                question: 'Qual é o músculo indicado pelo número 1 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Tríceps braquial<br>
+<strong>Origem:</strong><br>
+&nbsp;&nbsp;• Cabeça longa: tubérculo infraglenoidal da escápula<br>
+&nbsp;&nbsp;• Cabeça lateral: face posterior do úmero (acima do sulco radial)<br>
+&nbsp;&nbsp;• Cabeça medial: face posterior do úmero (abaixo do sulco radial)<br>
+<strong>Inserção:</strong> Olécrano da ulna<br>
+<strong>Ação:</strong> Extensão do cotovelo (principal); cabeça longa: extensão e adução do braço<br>
+<strong>Inervação:</strong> Nervo radial (C6-C8)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O <strong>nervo radial</strong> passa pelo sulco do nervo radial entre as cabeças lateral e medial do tríceps — "paralisia do sábado à noite" (compressão por dormir com o braço sobre o encosto) causa queda do punho (wrist drop). A cabeça medial do tríceps tem inervação independente e geralmente é poupada em fraturas do úmero, preservando extensão do cotovelo.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+        (function() {
+            const opts = ['Ancôneo', 'Tríceps braquial', 'Extensor ulnar do carpo', 'Supinador'];
+            const correct = 'Ancôneo';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior16.png',
+                question: 'Qual é o músculo indicado pelo número 2 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Ancôneo<br>
+<strong>Origem:</strong> Epicôndilo lateral do úmero<br>
+<strong>Inserção:</strong> Face lateral do olécrano e face posterior proximal da ulna<br>
+<strong>Ação:</strong> Auxilia na extensão do cotovelo; estabiliza a articulação umeroulnar durante pronação/supinação<br>
+<strong>Inervação:</strong> Nervo radial (C7-C8)<br>
+<strong>Característica:</strong> Pequeno músculo triangular, considerado extensão do tríceps no antebraço
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O ancôneo é usado como <strong>retalho muscular pediculado</strong> em cirurgias de cotovelo para cobertura de defeitos após ressecção de tumores ou osteomielite do olécrano. Sua denervação ocorre em lesões do nervo radial distal ao epicôndilo lateral. Na epicondilite lateral, o ancôneo também pode ser fonte de dor por ser co-originado no epicôndilo lateral.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+    ],
+
+    superioresVasosNervos: [],
 
     coxaAnterior: [
         // Quadríceps femoral
