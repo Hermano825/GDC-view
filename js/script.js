@@ -140,6 +140,7 @@ const superioresSubcategoryContainer = document.getElementById('superioresSubcat
 const superioresOssosBtn = document.getElementById('superioresOssosBtn');
 const superioresMusculosBtn = document.getElementById('superioresMusculosBtn');
 const superioresVasosNervosBtn = document.getElementById('superioresVasosNervosBtn');
+const superioresTeoricoBtn = document.getElementById('superioresTeoricoBtn');
 const backToCategoryFromSubcategoryBtn = document.getElementById('backToCategoryFromSubcategoryBtn');
 const imagemBtn = document.getElementById('imagemBtn');
 const teoricaBtn = document.getElementById('teoricaBtn');
@@ -249,6 +250,30 @@ function selectCategory(category) {
     showOnly(typeContainer);
 }
 
+// Seleciona categoria e tipo diretamente, pulando a tela de seleção de tipo
+function selectCategoryDirect(category, type) {
+    currentCategory = category;
+    currentType = type;
+
+    const _tMap = {
+        'superioresOssos': 'superioresTeorico',
+        'superioresMusculos': 'superioresTeorico',
+        'superioresVasosNervos': 'superioresTeorico'
+    };
+    const dataKey = type === 'teorica' ? (_tMap[category] || category + 'Teorico') : category;
+
+    if (typeof quizData === 'undefined' || !quizData[dataKey]) {
+        showMessage('Dados não disponíveis para esta seleção.', '#d32f2f');
+        return;
+    }
+
+    const categoryData = quizData[dataKey].filter(q => !q.disabled);
+    const allQuestionsCount = document.getElementById('allQuestionsCount');
+    if (allQuestionsCount) allQuestionsCount.textContent = `${categoryData.length} questões`;
+
+    showOnly(quantityContainer);
+}
+
 function selectType(type) {
     console.log('[DEBUG] selectType chamado com:', type);
     console.log('[DEBUG] currentCategory:', currentCategory);
@@ -285,8 +310,13 @@ function selectType(type) {
 }
 
 function selectQuantity(quantity) {
-    // Determinar chave de dados baseada no tipo
-    const dataKey = currentType === 'teorica' ? currentCategory + 'Teorico' : currentCategory;
+    // Determinar chave de dados baseada no tipo (com override para subcategorias de superiores)
+    const _tMap = {
+        'superioresOssos': 'superioresTeorico',
+        'superioresMusculos': 'superioresTeorico',
+        'superioresVasosNervos': 'superioresTeorico'
+    };
+    const dataKey = currentType === 'teorica' ? (_tMap[currentCategory] || currentCategory + 'Teorico') : currentCategory;
     
     // Filtrar questões desabilitadas
     const categoryData = quizData[dataKey].filter(question => !question.disabled);
@@ -1037,20 +1067,24 @@ if (inferioresBtn) inferioresBtn.onclick = () => { selectCategory('inferiores');
 if (coracaoBtn) coracaoBtn.onclick = () => { selectCategory('coracao'); };
 // mediastinoBtn removido: usar categoria 'coracao' com teóricas
 if (backToMenuBtn) backToMenuBtn.onclick = () => { showOnly(menuContainer); };
-if (backToCategoryBtn) backToCategoryBtn.onclick = () => { showOnly(typeContainer); };
+if (backToCategoryBtn) backToCategoryBtn.onclick = () => {
+    const isSuperioresSub = ['superioresOssos', 'superioresMusculos', 'superioresVasosNervos'].includes(currentCategory);
+    showOnly(isSuperioresSub ? superioresSubcategoryContainer : typeContainer);
+};
 if (backToCategoryFromTypeBtn) backToCategoryFromTypeBtn.onclick = () => { showOnly(categoryContainer); };
 
 // Subcategorias — Membros Superiores
-if (superioresOssosBtn) superioresOssosBtn.onclick = () => { selectCategory('superioresOssos'); };
-if (superioresMusculosBtn) superioresMusculosBtn.onclick = () => { selectCategory('superioresMusculos'); };
+if (superioresOssosBtn) superioresOssosBtn.onclick = () => { selectCategoryDirect('superioresOssos', 'imagem'); };
+if (superioresMusculosBtn) superioresMusculosBtn.onclick = () => { selectCategoryDirect('superioresMusculos', 'imagem'); };
 if (superioresVasosNervosBtn) superioresVasosNervosBtn.onclick = () => {
     const count = (quizData.superioresVasosNervos || []).length;
     if (count === 0) {
         showMessage('Vasos e Nervos estará disponível em breve!', '#1976d2');
         return;
     }
-    selectCategory('superioresVasosNervos');
+    selectCategoryDirect('superioresVasosNervos', 'imagem');
 };
+if (superioresTeoricoBtn) superioresTeoricoBtn.onclick = () => { selectCategoryDirect('superioresOssos', 'teorica'); };
 if (backToCategoryFromSubcategoryBtn) backToCategoryFromSubcategoryBtn.onclick = () => { showOnly(categoryContainer); };
 
 // Tipo de questão (imagem ou teórica)
@@ -1321,6 +1355,8 @@ function updateCategoryCounts() {
     if (ossosStatEl) ossosStatEl.textContent = format((quizData.superioresOssos || []).filter(q => !q.disabled).length);
     const muscStatEl = document.getElementById('superioresMusculosStat');
     if (muscStatEl) muscStatEl.textContent = format((quizData.superioresMusculos || []).filter(q => !q.disabled).length);
+    const teoricoStatEl = document.getElementById('superioresTeoricoStat');
+    if (teoricoStatEl) teoricoStatEl.textContent = format((quizData.superioresTeorico || []).filter(q => !q.disabled).length);
     if (infCard) {
         const stat = infCard.querySelector('.category-stats .stat');
         if (stat) {
