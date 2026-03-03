@@ -1496,6 +1496,940 @@ Na <strong>luxação anterior do ombro</strong>, a cabeça umeral desloca-se ant
             };
         })(),
 
+        // ========================================
+        // IMAGEM 3 — Rádio e Ulna (cotovelo e antebraço)
+        // Estruturas: 1-Capítulo do úmero | 2-Cabeça do rádio | 3-Tuberosidade do rádio
+        //             4-Tuberosidade da ulna | 5-Colo do rádio | 6-Cabeça do rádio (outra vista)
+        //             7-Olécrano | 8-Epicôndilo lateral | 9-Fossa do olécrano
+        // ========================================
+
+        // Questão 1 — Capítulo do úmero
+        (function() {
+            const opts = ['Capítulo do úmero', 'Tróclea do úmero', 'Epicôndilo lateral', 'Cabeça do rádio'];
+            const correct = 'Capítulo do úmero';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior3.png',
+                question: 'Qual é a estrutura indicada pelo número 1 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Capítulo do úmero<br>
+<strong>Localização:</strong> Porção lateral e anterior do côndilo do úmero<br>
+<strong>Articulação:</strong> Com a fóvea (depressão central) da cabeça do rádio → articulação radioumeral (uniaxial)<br>
+<strong>Formato:</strong> Proeminência esférica lisa; não se estende à face posterior do úmero<br>
+<strong>Distinção:</strong> O capítulo articula com o rádio; a tróclea (medial) articula com a ulna
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+A <strong>osteocondrite dissecante do capítulo</strong> é frequente em jovens arremessadores e ginastas, por microtraumas de compressão repetitivos. Pode evoluir para formação de corpos livres articulares causando bloqueio do cotovelo. O <strong>cotovelo de babá</strong> (subluxação da cabeça radial) envolve deslizamento da cabeça do rádio sobre o capítulo.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 2 — Cabeça do rádio
+        (function() {
+            const opts = ['Cabeça do rádio', 'Capítulo do úmero', 'Colo do rádio', 'Olécrano'];
+            const correct = 'Cabeça do rádio';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior3.png',
+                question: 'Qual é a estrutura indicada pelo número 2 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Cabeça do rádio<br>
+<strong>Localização:</strong> Extremidade proximal do rádio, em formato de disco<br>
+<strong>Articulações:</strong><br>
+&nbsp;&nbsp;• Superior: com o capítulo do úmero (articulação radioumeral)<br>
+&nbsp;&nbsp;• Medial: com a incisura radial da ulna (articulação radioulnar proximal)<br>
+<strong>Função:</strong> Permite pronação e supinação do antebraço<br>
+<strong>Estabilização:</strong> Ligamento anular do rádio (mantém a cabeça radial junto à ulna)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Fratura da cabeça do rádio</strong> é a fratura mais comum do cotovelo em adultos, geralmente por queda com o braço estendido e o antebraço pronado. Classificação de Mason (I-IV). Fraturas cominutivas (tipo III-IV) podem necessitar de ressecção ou artroplastia. Dor à palpação lateral do cotovelo e bloqueio na rotação são sinais característicos.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // Questão 3 — Tuberosidade do rádio
+        (function() {
+            const opts = ['Tuberosidade do rádio', 'Tuberosidade da ulna', 'Colo do rádio', 'Cabeça do rádio'];
+            const correct = 'Tuberosidade do rádio';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior3.png',
+                question: 'Qual é a estrutura indicada pelo número 3 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Tuberosidade do rádio (Tuberosidade bicipital)<br>
+<strong>Localização:</strong> Face medial do rádio, logo abaixo do colo; demarca a transição colo-diáfise<br>
+<strong>Inserção muscular:</strong> Tendão do músculo bíceps braquial — principal inserção distal<br>
+<strong>Função:</strong> Ponto de tração do bíceps para flexão do cotovelo e supinação do antebraço<br>
+<strong>Orientação:</strong> Na supinação, a tuberosidade gira para medial (maximizando a vantagem mecânica do bíceps)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+A <strong>ruptura do tendão distal do bíceps</strong> (avulsão da tuberosidade do rádio) ocorre tipicamente em homens de meia-idade durante esforço excêntrico súbito. Causa deformidade em "bola de Popeye" proximal, fraqueza acentuada na supinação (maior perda) e flexão. Tratamento cirúrgico com reinserção na tuberosidade.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 4 — Tuberosidade da ulna
+        (function() {
+            const opts = ['Tuberosidade da ulna', 'Tuberosidade do rádio', 'Olécrano', 'Processo coronóide'];
+            const correct = 'Tuberosidade da ulna';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior3.png',
+                question: 'Qual é a estrutura indicada pelo número 4 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Tuberosidade da ulna<br>
+<strong>Localização:</strong> Face anterior da ulna, logo abaixo do processo coronóide<br>
+<strong>Inserção muscular:</strong> Músculo braquial — principal flexor do cotovelo (independente da posição do antebraço)<br>
+<strong>Distinção da tuberosidade radial:</strong> A tuberosidade ulnar recebe o braquial; a radial recebe o bíceps<br>
+<strong>Referência:</strong> Marco da transição entre a extremidade proximal e a diáfise da ulna
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O músculo braquial (inserido na tuberosidade da ulna) é o único flexor puro do cotovelo — atua tanto na pronação quanto na supinação, ao contrário do bíceps. Lesões do músculo braquial por miosite ossificante são mais frequentes após fraturas do cotovelo ou mobilização precoce agressiva.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 5 — Colo do rádio
+        (function() {
+            const opts = ['Colo do rádio', 'Cabeça do rádio', 'Tuberosidade do rádio', 'Diáfise do rádio'];
+            const correct = 'Colo do rádio';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior3.png',
+                question: 'Qual é a estrutura indicada pelo número 5 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Colo do rádio<br>
+<strong>Localização:</strong> Porção cilíndrica estreita entre a cabeça do rádio (proximal) e a tuberosidade bicipital (distal)<br>
+<strong>Revestimento:</strong> Envolvido pelo ligamento anular, que estabiliza a cabeça radial junto à ulna<br>
+<strong>Angulação:</strong> Forma um ângulo de ~15° com a diáfise na visão frontal
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Fraturas do colo do rádio</strong> são mais comuns em crianças (o colo é mais vulnerável que a cabeça cartilaginosa). O nervo interósseo posterior (ramo profundo do nervo radial) contorna o colo do rádio passando pelo músculo supinador — pode ser lesado em fraturas do colo ou comprimido na <strong>síndrome do túnel radial</strong>.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 6 — Cabeça do rádio (outra vista)
+        (function() {
+            const opts = ['Cabeça do rádio', 'Colo do rádio', 'Capítulo do úmero', 'Tuberosidade do rádio'];
+            const correct = 'Cabeça do rádio';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior3.png',
+                question: 'Qual é a estrutura indicada pelo número 6 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Cabeça do rádio (vista em diferente ângulo)<br>
+<strong>Formato:</strong> Disco cilíndrico com fóvea central (depressão que articula com o capítulo) e borda circunferencial (que articula com a incisura radial da ulna)<br>
+<strong>Movimento:</strong> Gira sobre seu próprio eixo longo durante pronação/supinação dentro do ligamento anular<br>
+<strong>Palpação:</strong> Palpável na face lateral do cotovelo, distal ao epicôndilo lateral; desloca-se durante a rotação do antebraço
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O <strong>cotovelo de babá</strong> (pronação dolorosa, subluxação da cabeça radial) ocorre em crianças <5 anos quando o antebraço é puxado com força em pronação — a cabeça radial desliza parcialmente para fora do ligamento anular. Redução simples por supinação + flexão resolve o quadro imediatamente, sem necessidade de imagem.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // Questão 7 — Olécrano
+        (function() {
+            const opts = ['Olécrano', 'Processo coronóide', 'Epicôndilo medial', 'Tuberosidade da ulna'];
+            const correct = 'Olécrano';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior3.png',
+                question: 'Qual é a estrutura indicada pelo número 7 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Olécrano<br>
+<strong>Localização:</strong> Proeminência posterior da extremidade proximal da ulna — o "cotovelo" palpável<br>
+<strong>Articulação:</strong> Encaixa-se na fossa do olécrano do úmero durante a extensão total do cotovelo<br>
+<strong>Inserção muscular:</strong> Músculo tríceps braquial (tendão distal) — principal extensor do cotovelo<br>
+<strong>Bursa:</strong> Bursa do olécrano (subcutânea) facilita o deslizamento da pele sobre o osso
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Bursite do olécrano</strong> (inflamação da bursa subcutânea) causa edema flutuante na ponta do cotovelo com movimento preservado — diferente de artrite. Causas: trauma repetitivo, gota, sepse. <strong>Fraturas do olécrano</strong> comprometem o mecanismo extensor (tríceps) e geralmente necessitam de fixação cirúrgica com fio e banda de tensão.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // Questão 8 — Epicôndilo lateral
+        (function() {
+            const opts = ['Epicôndilo lateral', 'Epicôndilo medial', 'Capítulo do úmero', 'Cabeça do rádio'];
+            const correct = 'Epicôndilo lateral';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior3.png',
+                question: 'Qual é a estrutura indicada pelo número 8 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Epicôndilo lateral do úmero<br>
+<strong>Localização:</strong> Proeminência lateral da extremidade distal do úmero<br>
+<strong>Origens musculares (extensores do antebraço e punho):</strong><br>
+&nbsp;&nbsp;• Extensor radial curto do carpo, extensor dos dedos, extensor ulnar do carpo, supinador, ancôneo<br>
+<strong>Ligamento:</strong> Ligamento colateral radial origina-se no epicôndilo lateral<br>
+<strong>Comparação:</strong> Epicôndilo medial (maior, mais proeminente) → flexores; lateral → extensores
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Epicondilite lateral</strong> ("cotovelo de tenista") é a tendinopatia mais comum do cotovelo, afetando principalmente o extensor radial curto do carpo. Dor à palpação do epicôndilo lateral, piora ao estender o punho contra resistência (<strong>teste de Cozen</strong>). Tratamento conservador (fisioterapia, infiltração) em 90% dos casos.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 9 — Fossa do olécrano
+        (function() {
+            const opts = ['Fossa do olécrano', 'Fossa coronóidea', 'Fossa infraespinal', 'Fossa subescapular'];
+            const correct = 'Fossa do olécrano';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior3.png',
+                question: 'Qual é a estrutura indicada pelo número 9 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Fossa do olécrano<br>
+<strong>Localização:</strong> Depressão na face posterior da extremidade distal do úmero, acima da tróclea<br>
+<strong>Função:</strong> Acomoda o olécrano da ulna durante a extensão máxima do cotovelo (0°)<br>
+<strong>Anatomia relacionada:</strong><br>
+&nbsp;&nbsp;• Face posterior → fossa do olécrano (extensão)<br>
+&nbsp;&nbsp;• Face anterior → fossa coronóidea (flexão) + fossa radial lateral (cabeça do rádio na flexão)<br>
+<strong>Espessura:</strong> A parede entre as fossas anterior e posterior pode ser muito delgada ou perfurada
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O impacto repetitivo do olécrano contra a fossa em arremessadores causa <strong>síndrome do impacto posterior do cotovelo</strong> — formação de osteófitos, fragmentos livres e dor na extensão terminal. Comum em arremessadores de beisebol e handebol. Na extensão forçada, pode ocorrer avulsão do olécrano pelo tríceps.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 4 — Rádio e Ulna completos (vista anterior/posterior)
+        // Estruturas: 1-Cabeça do rádio | 2-Colo do rádio | 3-Tuberosidade do rádio
+        //             4-Membrana interóssea | 5-Processo estiloide da ulna
+        //             6-Tuberosidade da ulna | 7-Incisura troclear | 8-Olécrano
+        //             9-Tubérculo dorsal | 10-Processo estiloide (do rádio)
+        // ========================================
+
+        // Questão 1 — Cabeça do rádio
+        (function() {
+            const opts = ['Cabeça do rádio', 'Cabeça da ulna', 'Colo do rádio', 'Capítulo do úmero'];
+            const correct = 'Cabeça do rádio';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior4.png',
+                question: 'Qual é a estrutura indicada pelo número 1 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Cabeça do rádio<br>
+<strong>Localização:</strong> Extremidade proximal do rádio, formato de disco<br>
+<strong>Articulações:</strong><br>
+&nbsp;&nbsp;• Com o capítulo do úmero (articulação radioumeral)<br>
+&nbsp;&nbsp;• Com a incisura radial da ulna (articulação radioulnar proximal)<br>
+<strong>Ligamento anular:</strong> Abraça a cabeça do rádio mantendo-a junto à ulna durante a rotação<br>
+<strong>Movimento:</strong> Gira sobre o próprio eixo durante pronação e supinação do antebraço
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fratura da cabeça do rádio é a fratura mais comum do cotovelo em adultos. A <strong>classificação de Mason</strong> orienta o tratamento: tipo I (não deslocada → conservador), tipo II (deslocada parcial → fixação), tipo III (cominutiva → artroplastia), tipo IV (com luxação do cotovelo → cirurgia urgente).
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // Questão 2 — Colo do rádio
+        (function() {
+            const opts = ['Colo do rádio', 'Cabeça do rádio', 'Tuberosidade do rádio', 'Diáfise do rádio'];
+            const correct = 'Colo do rádio';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior4.png',
+                question: 'Qual é a estrutura indicada pelo número 2 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Colo do rádio<br>
+<strong>Localização:</strong> Segmento cilíndrico estreito entre a cabeça e a tuberosidade do rádio<br>
+<strong>Revestimento:</strong> Circundado pelo ligamento anular que estabiliza a articulação radioulnar proximal<br>
+<strong>Nervo adjacente:</strong> Nervo interósseo posterior (ramo do nervo radial) contorna o colo ao entrar no músculo supinador<br>
+<strong>Angulação:</strong> Forma ~15° com a diáfise, criando um deslocamento lateral da cabeça em relação ao eixo do rádio
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fraturas do colo do rádio são mais comuns em crianças (epífise cartilaginosa protegida). O nervo interósseo posterior que contorna o colo pode ser lesado em fraturas deslocadas ou durante cirurgias do cotovelo, causando queda dos dedos (drop finger) sem perda sensitiva significativa.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 3 — Tuberosidade do rádio
+        (function() {
+            const opts = ['Tuberosidade do rádio', 'Tuberosidade da ulna', 'Colo do rádio', 'Processo estiloide do rádio'];
+            const correct = 'Tuberosidade do rádio';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior4.png',
+                question: 'Qual é a estrutura indicada pelo número 3 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Tuberosidade do rádio (Tuberosidade bicipital)<br>
+<strong>Localização:</strong> Face medial do rádio, imediatamente distal ao colo<br>
+<strong>Inserção muscular:</strong> Tendão distal do músculo bíceps braquial<br>
+<strong>Orientação funcional:</strong> Na supinação máxima a tuberosidade aponta medialmente (posição de maior vantagem mecânica do bíceps); na pronação aponta posteriormente<br>
+<strong>Referência cirúrgica:</strong> Marco para abordagem anterior do cotovelo (via Henry)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Avulsão do tendão distal do bíceps na tuberosidade radial é mais comum em homens de 40–60 anos durante esforço excêntrico súbito (levantar carga pesada). Perda de ~50% da força de supinação e ~30% da flexão. Reparo cirúrgico precoce com reinserção através de âncoras ou parafuso de interferência na tuberosidade.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 4 — Membrana interóssea
+        (function() {
+            const opts = ['Membrana interóssea', 'Ligamento anular do rádio', 'Ligamento colateral ulnar', 'Fáscia do antebraço'];
+            const correct = 'Membrana interóssea';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior4.png',
+                question: 'Qual é a estrutura indicada pelo número 4 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Membrana interóssea do antebraço<br>
+<strong>Localização:</strong> Lâmina fibrosa entre as bordas interósseas do rádio e da ulna ao longo de toda a diáfise<br>
+<strong>Orientação das fibras:</strong> Oblíquas — do rádio proximalmente para a ulna distalmente (transferem cargas)<br>
+<strong>Funções:</strong><br>
+&nbsp;&nbsp;• Transferir forças do rádio para a ulna (75% da carga axial passa pelo rádio na mão)<br>
+&nbsp;&nbsp;• Separar os compartimentos anterior e posterior do antebraço<br>
+&nbsp;&nbsp;• Origem de músculos profundos do antebraço (flexor longo do polegar, flexor profundo dos dedos, extensor longo do polegar)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Lesão da membrana interóssea ocorre na <strong>fratura de Essex-Lopresti</strong> (fratura cominutiva da cabeça do rádio + ruptura da membrana interóssea + instabilidade radioulnar distal). Resulta em migração proximal do rádio se a cabeça for ressecada sem reposição. O <strong>nervo interósseo anterior</strong> (ramo do mediano) desce pela face anterior da membrana.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 5 — Processo estiloide da ulna
+        (function() {
+            const opts = ['Processo estiloide da ulna', 'Processo estiloide do rádio', 'Cabeça da ulna', 'Tubérculo dorsal'];
+            const correct = 'Processo estiloide da ulna';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior4.png',
+                question: 'Qual é a estrutura indicada pelo número 5 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Processo estiloide da ulna<br>
+<strong>Localização:</strong> Projeção cônica posterior-medial da extremidade distal da ulna (cabeça da ulna)<br>
+<strong>Inserção ligamentar:</strong> Complexo fibrocartilaginoso triangular (TFCC) e ligamentos ulnocarpais<br>
+<strong>Comprimento:</strong> Normalmente mais curto que o processo estiloide do rádio (1–2 mm mais proximal)<br>
+<strong>Palpação:</strong> Proeminência posteromedial palpável no pulso, mais visível com o pulso em flexão palmar
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fratura do processo estiloide da ulna é frequente na <strong>fratura de Colles</strong> (fratura distal do rádio por queda). Fragmento de base: associado a lesão do TFCC e instabilidade radioulnar distal. Dor à palpação do processo estiloide ulnar e teste de torção (ulnar fovea sign) positivo indicam lesão do TFCC.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 6 — Tuberosidade da ulna
+        (function() {
+            const opts = ['Tuberosidade da ulna', 'Tuberosidade do rádio', 'Processo coronóide', 'Olécrano'];
+            const correct = 'Tuberosidade da ulna';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior4.png',
+                question: 'Qual é a estrutura indicada pelo número 6 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Tuberosidade da ulna<br>
+<strong>Localização:</strong> Face anterior da ulna, imediatamente distal ao processo coronóide<br>
+<strong>Inserção muscular:</strong> Músculo braquial — principal flexor do cotovelo, independente da posição de rotação do antebraço<br>
+<strong>Distinção:</strong> Tuberosidade ulnar → braquial; tuberosidade radial → bíceps braquial<br>
+<strong>Inervação do braquial:</strong> Nervo musculocutâneo (ramo principal) + pequeno ramo do nervo radial
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O músculo braquial (inserido na tuberosidade da ulna) é considerado o "cavalo de batalha" da flexão do cotovelo por ser o único flexor puro. Miosite ossificante traumática do braquial é complicação de fraturas do cotovelo ou manipulações agressivas, resultando em limitação progressiva da flexão por calcificação intramuscular.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 7 — Incisura troclear
+        (function() {
+            const opts = ['Incisura troclear', 'Incisura radial', 'Fossa do olécrano', 'Fossa coronóidea'];
+            const correct = 'Incisura troclear';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior4.png',
+                question: 'Qual é a estrutura indicada pelo número 7 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Incisura troclear (Incisura semilunar)<br>
+<strong>Localização:</strong> Grande depressão côncava na extremidade proximal da ulna, formada pelo olécrano (posterior) e processo coronóide (anterior)<br>
+<strong>Articulação:</strong> Encaixa-se na tróclea do úmero → articulação umeroulnar (dobradiça — gínglimo)<br>
+<strong>Formato:</strong> Em forma de meia-lua ("semilunar"); permite apenas flexão e extensão do cotovelo<br>
+<strong>Crista central:</strong> Divide a superfície articular em porções medial e lateral
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fraturas que envolvem a incisura troclear (fraturas do olécrano + processo coronóide) comprometem a estabilidade do cotovelo. A <strong>tríade terrível do cotovelo</strong> (fratura do processo coronóide + fratura da cabeça do rádio + luxação do cotovelo) é lesão grave que ameaça a congruência articular umeroulnar.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 8 — Olécrano
+        (function() {
+            const opts = ['Olécrano', 'Processo coronóide', 'Incisura troclear', 'Tuberosidade da ulna'];
+            const correct = 'Olécrano';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior4.png',
+                question: 'Qual é a estrutura indicada pelo número 8 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Olécrano<br>
+<strong>Localização:</strong> Proeminência posterior da extremidade proximal da ulna; "ponta do cotovelo" palpável<br>
+<strong>Componente da incisura troclear:</strong> Forma a borda posterior/superior da incisura (junto com o processo coronóide anterior)<br>
+<strong>Inserção:</strong> Músculo tríceps braquial (tendão distal) — principal extensor do cotovelo<br>
+<strong>Relação vascular:</strong> Artéria colateral ulnar posterior e artéria recorrente ulnar posterior formam rede anastomótica ao redor
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fraturas do olécrano interrompem o mecanismo extensor e geralmente requerem fixação com <strong>fio de Kirschner + banda de tensão</strong> (osteossíntese). A bursite do olécrano é distinta: coleção flutuante subcutânea sem limitação de movimento — tratada com punção ou ressecção se refratária.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // Questão 9 — Tubérculo dorsal
+        (function() {
+            const opts = ['Tubérculo dorsal do rádio', 'Processo estiloide do rádio', 'Processo estiloide da ulna', 'Cabeça da ulna'];
+            const correct = 'Tubérculo dorsal do rádio';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior4.png',
+                question: 'Qual é a estrutura indicada pelo número 9 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Tubérculo dorsal do rádio (Tubérculo de Lister)<br>
+<strong>Localização:</strong> Proeminência na face posterior da extremidade distal do rádio, na linha média<br>
+<strong>Função:</strong> Serve de polia para o tendão do extensor longo do polegar (EPL), que contorna o tubérculo e muda sua direção<br>
+<strong>Referência cirúrgica:</strong> Marco importante para identificação do EPL na face dorsal do punho<br>
+<strong>Palpação:</strong> Facilmente palpável como pequena saliência na face dorsal do pulso
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Ruptura espontânea do EPL</strong> (extensor longo do polegar) pode ocorrer semanas após fratura de Colles não deslocada por isquemia do tendão no canal adjacente ao tubérculo de Lister. O paciente perde a extensão da falange distal do polegar. Tratamento com transposição do extensor próprio do indicador (EIP).
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 10 — Processo estiloide do rádio
+        (function() {
+            const opts = ['Processo estiloide do rádio', 'Processo estiloide da ulna', 'Tubérculo dorsal', 'Cabeça da ulna'];
+            const correct = 'Processo estiloide do rádio';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior4.png',
+                question: 'Qual é a estrutura indicada pelo número 10 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Processo estiloide do rádio<br>
+<strong>Localização:</strong> Projeção cônica na face lateral (radial) da extremidade distal do rádio<br>
+<strong>Comprimento:</strong> Projeta-se ~1 cm mais distalmente que o processo estiloide da ulna — assimetria normal<br>
+<strong>Inserção ligamentar:</strong> Ligamento colateral radial do carpo e retináculo dos flexores<br>
+<strong>Referência:</strong> Palpável na "tabaqueira anatômica" junto ao tendão do braquiorradial
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fratura por avulsão do processo estiloide do rádio (fratura de <strong>Hutchinson</strong> ou fratura do chauffeur) ocorre por tração do ligamento colateral radial em luxações radiocarpal. Na <strong>fratura de Colles</strong>, o processo estiloide pode estar incluído — se deslocado, compromete a estabilidade ligamentar lateral do pulso.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 5 — Ossos da mão (carpo, metacarpo, falanges)
+        // Estruturas: 1-Escafoide | 2-Trapézio | 3-Trapezoide | 4-Metacarpais
+        //             5-Falanges proximais | 6-Falanges médias | 7-Falanges distais
+        //             8-Capitato | 9-Semilunar | 10-Hamato | 11-Pisiforme | 12-Piramidal
+        // ========================================
+
+        // Questão 1 — Escafoide e Tubérculo
+        (function() {
+            const opts = ['Escafoide', 'Semilunar', 'Trapézio', 'Capitato'];
+            const correct = 'Escafoide';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior5.png',
+                question: 'Qual é a estrutura indicada pelo número 1 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Escafoide (com seu tubérculo)<br>
+<strong>Localização:</strong> Fileira proximal do carpo, lado radial (lateral); maior osso do carpo proximal<br>
+<strong>Articulações:</strong> Rádio, semilunar, trapézio, trapezoide e capitato<br>
+<strong>Tubérculo do escafoide:</strong> Proeminência palpável no assoalho da tabaqueira anatômica e na face palmar do punho<br>
+<strong>Vascularização:</strong> Suprimento retrógrado (entra distalmente) — a porção proximal é avascular
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Fratura do escafoide</strong> é a fratura de carpo mais comum (70%), tipicamente por queda com o punho em dorsiflexão. Dor na tabaqueira anatômica é o sinal clínico clássico. Risco de <strong>necrose avascular</strong> do polo proximal (25–33% das fraturas não tratadas) pela vascularização precária. Pode precisar de fixação com parafuso de Herbert.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 2 — Trapézio e Tubérculo
+        (function() {
+            const opts = ['Trapézio', 'Trapezoide', 'Escafoide', 'Capitato'];
+            const correct = 'Trapézio';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior5.png',
+                question: 'Qual é a estrutura indicada pelo número 2 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Trapézio (com seu tubérculo)<br>
+<strong>Localização:</strong> Fileira distal do carpo, lado radial; articula com o 1º metacarpal (polegar)<br>
+<strong>Articulação carpometacarpal do polegar:</strong> Sela (selar) — permite oponência do polegar<br>
+<strong>Tubérculo do trapézio:</strong> Proeminência na face palmar; serve de apoio para o retináculo dos flexores (canal do carpo)<br>
+<strong>Canal do trapézio:</strong> Por onde passa o tendão do flexor radial do carpo
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+A articulação carpometacarpal do polegar (trapézio-metacarpal) é a mais frequentemente acometida por <strong>artrose do carpo</strong> (rizoartrose), causando dor na base do polegar, crepitação e fraqueza de pinça. Tratamento inclui órtese, infiltração ou trapezectomia cirúrgica com ou sem ligamentoplastia.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 3 — Trapezoide
+        (function() {
+            const opts = ['Trapezoide', 'Trapézio', 'Capitato', 'Escafoide'];
+            const correct = 'Trapezoide';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior5.png',
+                question: 'Qual é a estrutura indicada pelo número 3 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Trapezoide<br>
+<strong>Localização:</strong> Fileira distal do carpo, entre o trapézio (radial) e o capitato (central)<br>
+<strong>Articulações:</strong> Escafoide (proximal), trapézio (lateral), capitato (medial), 2º metacarpal (distal)<br>
+<strong>Formato:</strong> Menor dos ossos da fileira distal do carpo; formato de cunha<br>
+<strong>Estabilidade:</strong> Encaixado firmemente no "arco do carpo" — raramente fraturado isoladamente
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fratura isolada do trapezoide é extremamente rara (<1% das fraturas de carpo) por sua posição protegida no encaixe do arco carpal. Quando ocorre, geralmente é por trauma axial direto no 2º metacarpal. Pode ser confundida com fraturas do trapézio ou capitato na radiografia simples; TC é necessária para diagnóstico.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 4 — Ossos metacarpais
+        (function() {
+            const opts = ['Ossos metacarpais', 'Falanges proximais', 'Ossos do carpo', 'Falanges médias'];
+            const correct = 'Ossos metacarpais';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior5.png',
+                question: 'Qual é a estrutura indicada pelo número 4 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Ossos metacarpais (1º ao 5º)<br>
+<strong>Localização:</strong> Entre o carpo (proximal) e as falanges proximais (distal); formam a palma da mão<br>
+<strong>Componentes de cada metacarpal:</strong> Base (proximal), diáfise e cabeça (distal — forma os "nós" dos dedos)<br>
+<strong>Articulações:</strong><br>
+&nbsp;&nbsp;• Carpometacarpais (proximal): 1º = sela; 2º-5º = planas (artrodias)<br>
+&nbsp;&nbsp;• Metacarpofalângicas (distal): esferóideas — flexão, extensão, abdução, adução
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Fratura do 5º metacarpal</strong> ("fratura do boxeador") é a fratura mais comum da mão, por soco com o punho fechado. Ocorre no colo do 5º metacarpal com angulação volar da cabeça. Tratamento conservador em angulações até 40°.  Fraturas da base do 1º metacarpal: Bennett (intra-articular) e Rolando (cominutiva) envolvem a articulação carpometacarpal do polegar.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // Questão 5 — Falanges proximais
+        (function() {
+            const opts = ['Falanges proximais', 'Falanges médias', 'Falanges distais', 'Ossos metacarpais'];
+            const correct = 'Falanges proximais';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior5.png',
+                question: 'Qual é a estrutura indicada pelo número 5 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Falanges proximais (1ª falange de cada dedo)<br>
+<strong>Localização:</strong> Primeiro segmento ósseo dos dedos, articulando proximalmente com as cabeças dos metacarpais<br>
+<strong>Articulações:</strong><br>
+&nbsp;&nbsp;• MF (metacarpofalângica) proximal: esferóidea<br>
+&nbsp;&nbsp;• IFP (interfalângica proximal) distal: dobradiça (gínglimo)<br>
+<strong>Observação:</strong> O polegar possui apenas falange proximal e distal (sem falange média — 2 falanges no total)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fraturas das falanges proximais são comuns em esportes de contato. Desvio rotacional é frequente e deve ser corrigido — detectado pedindo ao paciente para flexionar os dedos (todos devem apontar para o escafoide). A articulação IFP é a mais frequentemente luxada da mão; luxações dorsais são as mais comuns.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // Questão 6 — Falanges médias
+        (function() {
+            const opts = ['Falanges médias', 'Falanges proximais', 'Falanges distais', 'Ossos metacarpais'];
+            const correct = 'Falanges médias';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior5.png',
+                question: 'Qual é a estrutura indicada pelo número 6 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Falanges médias (2ª falange dos dedos 2–5)<br>
+<strong>Localização:</strong> Segmento osseo intermediário dos dedos 2 a 5 (polegar <strong>não possui</strong> falange média)<br>
+<strong>Articulações:</strong><br>
+&nbsp;&nbsp;• IFP (interfalângica proximal): com a falange proximal<br>
+&nbsp;&nbsp;• IFD (interfalângica distal): com a falange distal<br>
+<strong>Inserções:</strong> Flexor superficial dos dedos (face palmar) e banda central do aparelho extensor (face dorsal)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Lesão da banda central do aparelho extensor na base da falange média causa a <strong>deformidade em boutonnière</strong> (flexão IFP + hiperextensão IFD). Avulsão da inserção do flexor superficial (FSD) na falange média é incomum mas causa perda da flexão IFP — diferente da ruptura do FPD que afeta a IFD.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // Questão 7 — Falanges distais
+        (function() {
+            const opts = ['Falanges distais', 'Falanges médias', 'Falanges proximais', 'Ossos sesamoides'];
+            const correct = 'Falanges distais';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior5.png',
+                question: 'Qual é a estrutura indicada pelo número 7 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Falanges distais (3ª falange dos dedos 2–5; 2ª do polegar)<br>
+<strong>Localização:</strong> Segmento terminal de cada dedo; sustenta a polpa digital e a unha<br>
+<strong>Tuberosidade distal:</strong> Alargamento na extremidade distal (sustenta a polpa e fixa a pele)<br>
+<strong>Inserções:</strong><br>
+&nbsp;&nbsp;• Flexor profundo dos dedos (face palmar)<br>
+&nbsp;&nbsp;• Extensor terminal/bandas laterais do aparelho extensor (face dorsal)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Avulsão do tendão extensor na base da falange distal causa o <strong>dedo em martelo</strong> (mallet finger) — flexão fixa da IFD sem extensão ativa. Tratamento conservador com tala em extensão por 6–8 semanas. Avulsão do flexor profundo (jersey finger) ocorre ao agarrar a camisa do adversário, requerendo reparo cirúrgico precoce.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // Questão 8 — Capitato
+        (function() {
+            const opts = ['Capitato', 'Hamato', 'Semilunar', 'Trapezoide'];
+            const correct = 'Capitato';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior5.png',
+                question: 'Qual é a estrutura indicada pelo número 8 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Capitato<br>
+<strong>Localização:</strong> Centro da fileira distal do carpo; maior osso do carpo<br>
+<strong>Articulações:</strong> Semilunar e escafoide (proximal), trapezoide (radial), hamato (ulnar), 2º-4º metacarpais (distal)<br>
+<strong>Posição central:</strong> Considerado a "pedra angular" do carpo; eixo de rotação do punho<br>
+<strong>Vascularização:</strong> Entra distalmente — polo proximal tem risco de necrose avascular (menor que o escafoide)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fratura do capitato isolada é rara; quando ocorre, frequentemente está associada à fratura do escafoide (<strong>síndrome de escafoide-capitato</strong>). Na <strong>luxação perilunar do carpo</strong>, o capitato desloca-se dorsal ao semilunar — lesão grave por trauma de alta energia. O capitato é o osso que primeiro ossifica no carpo (1–2 meses de vida).
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 9 — Semilunar
+        (function() {
+            const opts = ['Semilunar', 'Escafoide', 'Piramidal', 'Capitato'];
+            const correct = 'Semilunar';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior5.png',
+                question: 'Qual é a estrutura indicada pelo número 9 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Semilunar (Osso Lunar)<br>
+<strong>Localização:</strong> Fileira proximal do carpo, posição central entre o escafoide (radial) e o piramidal (ulnar)<br>
+<strong>Formato:</strong> Em lua crescente (formato de meia-lua) — daí seu nome<br>
+<strong>Articulações:</strong> Rádio e disco articular (proximal), capitato e hamato (distal), escafoide e piramidal (laterais)<br>
+<strong>Relevância:</strong> Participa de ~80% da superfície articular do punho
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Doença de Kienböck</strong> (necrose avascular do semilunar) causa dor dorsal no punho progressiva, perda de força e amplitude de movimento. Classificação de Lichtman (I–IV). Pode ser associada à variante ulnar negativa (ulna mais curta que rádio). A <strong>luxação do semilunar</strong> (para palmar) é a lesão mais grave da fileira proximal do carpo.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 10 — Hamato e Hâmulo
+        (function() {
+            const opts = ['Hamato', 'Capitato', 'Pisiforme', 'Piramidal'];
+            const correct = 'Hamato';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior5.png',
+                question: 'Qual é a estrutura indicada pelo número 10 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Hamato (com seu hâmulo)<br>
+<strong>Localização:</strong> Fileira distal do carpo, lado ulnar<br>
+<strong>Hâmulo:</strong> Processo em forma de gancho na face palmar — dá nome ao osso ("hamato" = gancho)<br>
+<strong>Canal de Guyon:</strong> O hâmulo forma a parede lateral do canal de Guyon (por onde passa o nervo ulnar)<br>
+<strong>Articulações:</strong> Piramidal (proximal), capitato (radial), 4º e 5º metacarpais (distal)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fratura do hâmulo do hamato ocorre em esportes com raquetes/bastões (golfe, beisebol, tênis) por impacto repetitivo. Causa dor hipotenar e <strong>compressão do nervo ulnar no canal de Guyon</strong> (parestesia no 4º–5º dedos, fraqueza dos intrínsecos). Tratamento: excisão do fragmento do hâmulo.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 11 — Pisiforme
+        (function() {
+            const opts = ['Pisiforme', 'Piramidal', 'Hamato', 'Semilunar'];
+            const correct = 'Pisiforme';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior5.png',
+                question: 'Qual é a estrutura indicada pelo número 11 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Pisiforme<br>
+<strong>Localização:</strong> Fileira proximal do carpo, lado ulnar palmar; osso sesamoide desenvolvido no tendão do flexor ulnar do carpo<br>
+<strong>Classificação especial:</strong> Único osso do carpo considerado osso sesamoide (desenvolvido dentro de tendão)<br>
+<strong>Articulação:</strong> Apenas com o piramidal (articulação pisiforme-piramidal)<br>
+<strong>Canal de Guyon:</strong> Forma a parede medial do canal, junto com o hâmulo (lateral)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fratura do pisiforme ocorre por trauma direto (queda sobre a eminência hipotenar) ou por avulsão do flexor ulnar do carpo. Artrose pisiforme-piramidal causa dor ao pressionar o pisiforme contra o piramidal em pronação. Tratamento cirúrgico (pisifomectomia) é eficaz e sem sequelas funcionais significativas.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 12 — Piramidal
+        (function() {
+            const opts = ['Piramidal', 'Pisiforme', 'Semilunar', 'Hamato'];
+            const correct = 'Piramidal';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior5.png',
+                question: 'Qual é a estrutura indicada pelo número 12 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Piramidal (Osso Triangular)<br>
+<strong>Localização:</strong> Fileira proximal do carpo, lado ulnar; entre o semilunar (radial) e o pisiforme (palmar)<br>
+<strong>Articulações:</strong><br>
+&nbsp;&nbsp;• Disco articular triangular/TFCC (proximal)<br>
+&nbsp;&nbsp;• Semilunar (radial)<br>
+&nbsp;&nbsp;• Pisiforme (palmar) e hamato (distal)<br>
+<strong>Formato:</strong> Piramidal com 4 faces articulares; não articula diretamente com a ulna (separado pelo TFCC)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fratura do piramidal é a <strong>segunda fratura de carpo mais comum</strong> (após o escafoide), geralmente por avulsão dorsal durante dorsiflexão-desvio ulnar. Visível em radiografia lateral como fragmento dorsal. Tratamento conservador com imobilização. Dor à palpação dorsal do carpo ulnar é o sinal clínico característico.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
     ],
 
     coxaAnterior: [
