@@ -1,0 +1,419 @@
+/* Suporte para dark mode */
+/* Tema Escuro Manual (prioridade sobre preferencia do sistema) */
+body.dark-theme,
+body.theme-override.dark-theme {
+    background: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.theme-override.dark-theme main {
+    background: #2a2a2a;
+}
+
+/* Tema Claro Manual (forca modo claro mesmo com sistema em dark) */
+body.theme-override:not(.dark-theme) {
+    background: #f6f8fa !important;
+    color: #222 !important;
+}
+
+body.theme-override:not(.dark-theme) main {
+    background: #fff !important;
+}
+
+body.theme-override:not(.dark-theme) .menu-card,
+body.theme-override:not(.dark-theme) .category-card,
+body.theme-override:not(.dark-theme) .auth-container {
+    background: #fff !important;
+    border-color: #f0f0f0 !important;
+    color: #333 !important;
+}
+
+body.theme-override:not(.dark-theme) .user-info {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+body.theme-override:not(.dark-theme) .quick-stats {
+    background: #f8f9fa !important;
+    border-color: #e9ecef !important;
+}
+
+body.theme-override:not(.dark-theme) .quiz-header {
+    background: #f8f9fa !important;
+    border-color: #e9ecef !important;
+}
+
+body.theme-override:not(.dark-theme) .quiz-header h2,
+body.theme-override:not(.dark-theme) #quizQuestion,
+body.theme-override:not(.dark-theme) h2,
+body.theme-override:not(.dark-theme) h3 {
+    color: #333 !important;
+}
+
+body.theme-override:not(.dark-theme) input,
+body.theme-override:not(.dark-theme) select {
+    background: #fff !important;
+    color: #333 !important;
+    border-color: #e0e0e0 !important;
+}
+
+body.theme-override:not(.dark-theme) #quizOptions button {
+    background: #fff !important;
+    color: #333 !important;
+    border-color: #e0e0e0 !important;
+}
+
+body.theme-override:not(.dark-theme) .explanation-box {
+    background: #f8f9fa !important;
+    border-color: #e0e0e0 !important;
+}
+
+body.theme-override:not(.dark-theme) .progress-bar {
+    background: #e9ecef !important;
+}
+
+body.theme-override:not(.dark-theme) #statsContent {
+    background: #fff !important;
+    border-color: #e9ecef !important;
+}
+
+/* Deteccao automatica do sistema (apenas se nao houver override manual) */
+@media (prefers-color-scheme: dark) {
+    body:not(.theme-override) {
+        background: #1a1a1a;
+        color: #e0e0e0;
+    }
+
+    main:not(.theme-override *) {
+        background: #2d2d2d;
+    }
+
+    body:not(.theme-override) .menu-card,
+    body:not(.theme-override) .category-card,
+    body:not(.theme-override) .auth-container {
+        background: #3d3d3d;
+        border-color: #4d4d4d;
+    }
+
+    body:not(.theme-override) .user-info {
+        background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    }
+
+    body:not(.theme-override) .quick-stats {
+        background: #3d3d3d;
+        border-color: #4d4d4d;
+    }
+
+    body:not(.theme-override) .auth-container input {
+        background: #3d3d3d;
+        border-color: #4d4d4d;
+        color: #e0e0e0;
+    }
+
+    body:not(.theme-override) .auth-container input:focus {
+        background: #4d4d4d;
+    }
+
+    body:not(.theme-override) #quizOptions button {
+        background: #3d3d3d;
+        border-color: #4d4d4d;
+        color: #e0e0e0;
+    }
+
+    body:not(.theme-override) .explanation-box {
+        background: #3d3d3d;
+        border-color: #4d4d4d;
+    }
+
+    body:not(.theme-override) .quiz-header {
+        background: #3d3d3d;
+        border-color: #4d4d4d;
+    }
+
+    body:not(.theme-override) .progress-bar {
+        background: #4d4d4d;
+    }
+
+    body:not(.theme-override) #statsContent {
+        background: #3d3d3d;
+        border-color: #4d4d4d;
+    }
+}
+
+/* Tema Escuro */
+body.dark-theme {
+    background: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.dark-theme main {
+    background: #2a2a2a;
+}
+
+body.dark-theme .menu-card,
+body.dark-theme .category-card,
+body.dark-theme .auth-container {
+    background: #333;
+    border-color: #444;
+    color: #e0e0e0;
+}
+
+body.dark-theme .auth-description {
+    color: #b0b0b0;
+}
+
+body.dark-theme .link-btn {
+    color: #8b9aee;
+}
+
+body.dark-theme .link-btn:hover {
+    color: #a5b4ff;
+}
+
+body.dark-theme .menu-card:hover,
+body.dark-theme .category-card:hover {
+    background: #3a3a3a;
+    border-color: #667eea;
+}
+
+body.dark-theme .card-content h3,
+body.dark-theme h2,
+body.dark-theme h3 {
+    color: #e0e0e0;
+}
+
+body.dark-theme .card-content p {
+    color: #b0b0b0;
+}
+
+body.dark-theme input,
+body.dark-theme select {
+    background: #333;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+body.dark-theme .settings-panel {
+    background: #2a2a2a;
+}
+
+body.dark-theme .settings-body {
+    background: #2a2a2a;
+}
+
+body.dark-theme .setting-label,
+body.dark-theme .setting-text {
+    color: #e0e0e0;
+}
+
+body.dark-theme .setting-select {
+    background: #333;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+body.dark-theme .settings-footer {
+    background: #222;
+}
+
+body.dark-theme .btn-reset {
+    background: #333;
+    color: #ff6b6b;
+    border-color: #ff6b6b;
+}
+
+body.dark-theme .btn-reset:hover {
+    background: #ff6b6b;
+    color: white;
+}
+
+body.dark-theme .setting-group {
+    border-bottom-color: #444;
+}
+
+body.dark-theme .option-btn {
+    background: #333;
+    color: #e0e0e0;
+    border-color: #444;
+}
+
+body.dark-theme .option-btn:hover {
+    background: #3a3a3a;
+    border-color: #667eea;
+}
+
+body.dark-theme .explanation-box {
+    background: #333;
+    border-color: #444;
+}
+
+body.dark-theme .quiz-header {
+    background: #333;
+    border-color: #444;
+}
+
+body.dark-theme .quiz-header h2 {
+    color: #e0e0e0;
+}
+
+body.dark-theme #quizQuestion {
+    color: #e0e0e0;
+}
+
+body.dark-theme .quiz-progress {
+    background: #667eea;
+}
+
+body.dark-theme .progress-container {
+    background: #333;
+}
+
+body.dark-theme .progress-fill {
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+}
+
+body.dark-theme .progress-text {
+    color: #e0e0e0;
+}
+
+body.dark-theme #quizFeedback {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme #quizFeedback.success {
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+    color: #a5d6a7;
+    border-color: #4caf50;
+}
+
+body.dark-theme #quizFeedback.error {
+    background: linear-gradient(135deg, #b71c1c 0%, #c62828 100%);
+    color: #ffcdd2;
+    border-color: #f44336;
+}
+
+body.dark-theme .difficulty-badge {
+    background: #444;
+    color: #e0e0e0;
+}
+
+body.dark-theme .quiz-image-container {
+    background: #333;
+    border-color: #444;
+}
+
+body.dark-theme #quizImage {
+    border-color: #444;
+}
+
+body.dark-theme button {
+    color: #fff;
+}
+
+body.dark-theme .quiz-controls button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+}
+
+body.dark-theme #backMenuBtn {
+    background: #333;
+    color: #e0e0e0;
+    border: 2px solid #444;
+}
+
+body.dark-theme #backMenuBtn:hover {
+    background: #3a3a3a;
+    border-color: #667eea;
+}
+
+body.dark-theme .home-hero h1,
+body.dark-theme .home-hero p {
+    color: #e0e0e0;
+}
+
+body.dark-theme .benefits li {
+    color: #b0b0b0;
+}
+
+body.dark-theme .menu-footer {
+    background: #222;
+}
+
+body.dark-theme .stat-number {
+    color: #667eea;
+}
+
+body.dark-theme .stat-label {
+    color: #b0b0b0;
+}
+
+/* Dark theme para tutorial e stats */
+body.dark-theme .tutorial-content {
+    background: #1e1e1e;
+}
+
+body.dark-theme .tutorial-body h3 {
+    color: #e0e0e0;
+}
+
+body.dark-theme .tutorial-body p {
+    color: #b0b0b0;
+}
+
+body.dark-theme .tutorial-footer {
+    background: #2a2a2a;
+    border-top-color: #444;
+}
+
+body.dark-theme .tutorial-btn-secondary {
+    color: #b0b0b0;
+    border-color: #444;
+}
+
+body.dark-theme .tutorial-btn-secondary:hover {
+    background: #333;
+    border-color: #555;
+    color: #e0e0e0;
+}
+
+body.dark-theme .tutorial-btn-nav {
+    background: #2a2a2a;
+}
+
+body.dark-theme .tutorial-dots .dot {
+    background: #444;
+}
+
+body.dark-theme .tutorial-dots .dot:hover {
+    background: #555;
+}
+
+body.dark-theme .stats-chart-card {
+    background: #1f1f1f;
+    border-color: #333;
+}
+
+body.dark-theme .stats-controls select {
+    background: #1f1f1f;
+    color: #e0e0e0;
+    border-color: #333;
+}
+
+body.dark-theme .stat-chip {
+    background: #2b2b2b;
+    color: #e0e0e0;
+    border-color: #3a3a3a;
+}
+
+/* Tamanhos de Fonte */
+body.font-small {
+    font-size: 14px;
+}
+
+body.font-medium {
+    font-size: 16px;
+}
+
+body.font-large {
+    font-size: 18px;
+}

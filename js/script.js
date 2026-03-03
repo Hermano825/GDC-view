@@ -1,4 +1,17 @@
-// Detecção de dispositivo móvel e otimizações
+// ========================================
+// APP STRUCTURE
+// 1) Mobile config
+// 2) DOM refs
+// 3) State
+// 4) Quiz
+// 5) Auth
+// 6) Settings
+// 7) Stats
+// 8) Tutorial
+// 9) Init
+// ========================================
+
+// Deteccao de dispositivo movel e otimizacoes
 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
 const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 
@@ -66,7 +79,10 @@ function addHapticFeedback() {
     });
 }
 
-// Seletores únicos para containers e botões
+// ========================================
+// DOM REFS
+// ========================================
+// Seletores unicos para containers e botoes
 const homeContainer = document.getElementById('homeContainer');
 const loginContainer = document.getElementById('loginContainer');
 const registerContainer = document.getElementById('registerContainer');
@@ -159,7 +175,10 @@ const statsTimeFilter = document.getElementById('statsTimeFilter');
 const evolutionCanvas = document.getElementById('evolutionChart');
 let evolutionChart = null;
 
-// Estado do usuário e quiz
+// ========================================
+// STATE
+// ========================================
+// Estado do usuario e quiz
 let currentUser = null;
 let quizIndex = 0;
 let quizScore = 0;
@@ -172,16 +191,12 @@ let userStats = {};
 
 const ADMIN_EMAIL = 'jose.hermano@hotmail.com';
 
-// Funções do Quiz
+// ========================================
+// QUIZ FLOW
+// ========================================
+// Funcoes do Quiz
 function selectCategory(category) {
     currentCategory = category;
-    
-    // Verificar se é membros superiores (em desenvolvimento)
-    if (category === 'superiores') {
-        showWarningModal('Membros Superiores em Desenvolvimento', 
-            'As questões de membros superiores com imagens estão sendo preparadas e estarão disponíveis em breve. Agradecemos sua compreensão! 🚧');
-        return;
-    }
     
     // Verificar se quizData existe e tem a categoria
     if (typeof quizData === 'undefined' || !quizData[category]) {
@@ -595,7 +610,10 @@ function closeWarningModal() {
     }
 }
 
-// Utilitários de navegação
+// ========================================
+// UI HELPERS
+// ========================================
+// Utilitarios de navegacao
 function showOnly(container) {
     [homeContainer, loginContainer, registerContainer, forgotPasswordContainer, resetPasswordContainer, menuContainer, categoryContainer, typeContainer, quantityContainer, quizContainer, statsContainer, adminPanelContainer].forEach(c => {
         if (c) c.style.display = 'none';
@@ -721,6 +739,9 @@ function afterAuthUpdate() {
 
 // Chamar afterAuthUpdate nos pontos de login/logout/cadastro
 // ...existing code...
+// ========================================
+// AUTH HANDLERS
+// ========================================
 if (loginForm) {
     loginForm.onsubmit = async (e) => {
         e.preventDefault();
@@ -837,6 +858,9 @@ if (resetPasswordForm) {
     };
 }
 
+// ========================================
+// NAVEGACAO PRINCIPAL
+// ========================================
 // Header/nav
 if (homeBtn) homeBtn.onclick = () => { showOnly(homeContainer); };
 if (statsBtn) statsBtn.onclick = () => { renderStats(); showOnly(statsContainer); };
@@ -869,6 +893,9 @@ if (settingsMenuBtn) settingsMenuBtn.onclick = () => {
 };
 if (logoutMenuBtn) logoutMenuBtn.onclick = () => { logout(); };
 
+// ========================================
+// CONFIGURACOES
+// ========================================
 // Configurações Modal
 function openSettingsModal() {
     const modal = document.getElementById('settingsModal');

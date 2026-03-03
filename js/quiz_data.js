@@ -833,28 +833,669 @@ Mais profundo dos isquiotibiais mediais; possui longo tendão proximal membraná
     ],
 
     superiores: [
-        createQuestion(1, "Músculo Bíceps Braquial",
-            ["Bíceps Braquial", "Tríceps Braquial", "Braquial", "Coracobraquial"],
-            0,
-            'fácil',
-            `
-<strong>Origem:</strong> Cabeça longa: tubérculo supraglenoidal da escápula; Cabeça curta: processo coracóide da escápula
-<strong>Inserção:</strong> Tuberosidade do rádio
-<strong>Ação:</strong> Flexão do cotovelo e supinação do antebraço
-<strong>Inervação:</strong> Nervo musculocutâneo (C5-C6)
-            `
-        ),
-        createQuestion(2, "Músculo Tríceps Braquial",
-            ["Tríceps Braquial", "Bíceps Braquial", "Braquial", "Ancôneo"],
-            0,
-            'médio',
-            `
-<strong>Origem:</strong> Cabeça longa: tubérculo infraglenoidal da escápula; Cabeça lateral e medial: face posterior do úmero
-<strong>Inserção:</strong> Olécrano da ulna
-<strong>Ação:</strong> Extensão do cotovelo
-<strong>Inervação:</strong> Nervo radial (C6-C8)
-            `
-        ),
+
+        // ========================================
+        // IMAGEM 1 — Escápula e Úmero (vista geral)
+        // Estruturas: 1-Acrômio | 2-Tubérculo maior | 3-Tubérculo menor
+        //             4-Sulco intertubercular | 5-Côndilo do úmero
+        //             6-Capítulo do úmero | 7-Fossa coronóidea
+        //             8-Cavidade glenoidal | 9-Ângulo inferior
+        //             10-Fossa subescapular | 11-Processo coracoide
+        // ========================================
+
+        // Questão 1 — Acrômio
+        (function() {
+            const opts = ['Acrômio', 'Processo coracoide', 'Tubérculo maior', 'Ângulo inferior'];
+            const correct = 'Acrômio';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior1.png',
+                question: 'Qual é a estrutura indicada pelo número 1 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Acrômio<br>
+<strong>Localização:</strong> Projeção lateral da espinha da escápula, formando o teto da articulação do ombro<br>
+<strong>Referência:</strong> Ponto de origem do músculo deltóide e inserção do músculo trapézio<br>
+<strong>Articulação:</strong> Articula com a clavícula formando a articulação acromioclavicular
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+A morfologia do acrômio (tipo I plano, tipo II curvo, tipo III ganchoso) influencia diretamente o risco de <strong>síndrome do impacto subacromial</strong>, comprimindo os tendões do manguito rotador. Acrômios tipo III aumentam significativamente o risco de ruptura do tendão supraespinhal.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // Questão 2 — Tubérculo maior (troquiter)
+        (function() {
+            const opts = ['Tubérculo maior', 'Tubérculo menor', 'Sulco intertubercular', 'Capítulo do úmero'];
+            const correct = 'Tubérculo maior';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior1.png',
+                question: 'Qual é a estrutura indicada pelo número 2 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Tubérculo maior (Troquiter)<br>
+<strong>Localização:</strong> Proeminência lateral da extremidade proximal do úmero<br>
+<strong>Inserções musculares:</strong><br>
+&nbsp;&nbsp;• Supraespinhal (faceta superior)<br>
+&nbsp;&nbsp;• Infraespinhal (faceta média)<br>
+&nbsp;&nbsp;• Redondo menor (faceta inferior)<br>
+<strong>Relevância:</strong> Principal sítio de inserção dos músculos do manguito rotador
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Fratura do tubérculo maior</strong> é comum em quedas sobre o ombro ou luxações anteriores do ombro. Pode levar a disfunção do manguito rotador se o fragmento se deslocar superiormente, bloqueando a abdução do braço.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 3 — Tubérculo menor (troquino)
+        (function() {
+            const opts = ['Tubérculo menor', 'Tubérculo maior', 'Processo coracoide', 'Acrômio'];
+            const correct = 'Tubérculo menor';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior1.png',
+                question: 'Qual é a estrutura indicada pelo número 3 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Tubérculo menor (Troquino)<br>
+<strong>Localização:</strong> Proeminência anterior da extremidade proximal do úmero, medial ao tubérculo maior<br>
+<strong>Inserção muscular:</strong> Músculo subescapular (único músculo do manguito rotador inserido no tubérculo menor)<br>
+<strong>Referência:</strong> Palpável na rotação lateral do braço
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Lesões do músculo subescapular (inserido no tubérculo menor) podem causar fraqueza na rotação medial e instabilidade anterior do ombro. O <strong>sinal do belly-press</strong> e o <strong>sinal do lift-off</strong> avaliam a integridade desta estrutura.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 4 — Sulco intertubercular
+        (function() {
+            const opts = ['Sulco intertubercular', 'Fossa coronóidea', 'Fossa subescapular', 'Cavidade glenoidal'];
+            const correct = 'Sulco intertubercular';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior1.png',
+                question: 'Qual é a estrutura indicada pelo número 4 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Sulco intertubercular (Sulco bicipital)<br>
+<strong>Localização:</strong> Canal vertical entre o tubérculo maior e o tubérculo menor do úmero<br>
+<strong>Conteúdo:</strong> Tendão da cabeça longa do músculo bíceps braquial<br>
+<strong>Revestimento:</strong> O ligamento transverso umeral mantém o tendão dentro do sulco
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+A <strong>tendinite bicipital</strong> envolve inflamação do tendão da cabeça longa do bíceps dentro deste sulco. O <strong>teste de Speed</strong> (resistência à flexão do ombro com cotovelo estendido e antebraço supinado) é positivo quando há dor na região do sulco intertubercular.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 5 — Côndilo do úmero
+        (function() {
+            const opts = ['Côndilo do úmero', 'Capítulo do úmero', 'Fossa coronóidea', 'Tubérculo maior'];
+            const correct = 'Côndilo do úmero';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior1.png',
+                question: 'Qual é a estrutura indicada pelo número 5 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Côndilo do úmero<br>
+<strong>Localização:</strong> Extremidade distal do úmero; constitui a superfície articular do cotovelo<br>
+<strong>Componentes:</strong><br>
+&nbsp;&nbsp;• <strong>Tróclea</strong> (parte medial): articula com a ulna<br>
+&nbsp;&nbsp;• <strong>Capítulo</strong> (parte lateral): articula com a cabeça do rádio<br>
+<strong>Referência:</strong> Inclui também os epicôndilos medial e lateral
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Fraturas supracondilaras</strong> do úmero são as fraturas de cotovelo mais comuns em crianças (85%), geralmente por queda com o braço estendido. Risco de lesão da artéria braquial e do nervo interósseo anterior.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 6 — Capítulo do úmero
+        (function() {
+            const opts = ['Capítulo do úmero', 'Côndilo do úmero', 'Tubérculo maior', 'Fossa coronóidea'];
+            const correct = 'Capítulo do úmero';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior1.png',
+                question: 'Qual é a estrutura indicada pelo número 6 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Capítulo do úmero<br>
+<strong>Localização:</strong> Porção lateral e anterior do côndilo do úmero<br>
+<strong>Articulação:</strong> Articula com a fóvea (depressão central) da cabeça do rádio, formando a articulação radioumeral<br>
+<strong>Formato:</strong> Proeminência esférica lisa, sem extensão para a face posterior do úmero
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+A <strong>osteocondrite dissecante do capítulo</strong> é comum em jovens atletas (arremessadores, ginastas), causada por microtraumas repetitivos de compressão. A subluxação da cabeça do rádio (<strong>cotovelo de babá</strong>) envolve deslizamento da cabeça radial sobre o capítulo.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 7 — Fossa coronóidea
+        (function() {
+            const opts = ['Fossa coronóidea', 'Fossa subescapular', 'Sulco intertubercular', 'Cavidade glenoidal'];
+            const correct = 'Fossa coronóidea';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior1.png',
+                question: 'Qual é a estrutura indicada pelo número 7 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Fossa coronóidea<br>
+<strong>Localização:</strong> Depressão na face anterior da extremidade distal do úmero, acima da tróclea<br>
+<strong>Função:</strong> Acomoda o processo coronóide da ulna durante a flexão máxima do cotovelo<br>
+<strong>Anatomia relacionada:</strong> Oposta à fossa do olécrano (face posterior), que recebe o olécrano na extensão
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fraturas por hiperflexão do cotovelo podem comprimir o processo coronóide contra a fossa coronóidea, resultando em <strong>fratura do processo coronóide</strong>. Também pode acumular fragmentos osteocondrais livres causando bloqueio articular.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 8 — Cavidade glenoidal da escápula
+        (function() {
+            const opts = ['Cavidade glenoidal da escápula', 'Fossa subescapular', 'Fossa coronóidea', 'Ângulo inferior'];
+            const correct = 'Cavidade glenoidal da escápula';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior1.png',
+                question: 'Qual é a estrutura indicada pelo número 8 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Cavidade glenoidal da escápula<br>
+<strong>Localização:</strong> Superfície articular lateral da escápula, no ângulo lateral<br>
+<strong>Articulação:</strong> Articula com a cabeça do úmero formando a articulação glenoumeral (ombro)<br>
+<strong>Características:</strong> Superfície relativamente rasa (aprofundada pelo lábio glenoidal); permite grande amplitude de movimento<br>
+<strong>Formato:</strong> Oval, com porção superior mais estreita ("vírgula invertida")
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+A <strong>luxação anterior do ombro</strong> (mais comum — 95%) provoca lesão do lábio glenoidal anterior (<strong>lesão de Bankart</strong>) e pode causar uma impressão na cabeça do úmero (<strong>lesão de Hill-Sachs</strong>). Instabilidade glenoumeral recorrente é tratada pela cirurgia de Latarjet.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 9 — Ângulo inferior da escápula
+        (function() {
+            const opts = ['Ângulo inferior', 'Acrômio', 'Processo coracoide', 'Cavidade glenoidal da escápula'];
+            const correct = 'Ângulo inferior';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior1.png',
+                question: 'Qual é a estrutura indicada pelo número 9 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Ângulo inferior da escápula<br>
+<strong>Localização:</strong> Ponto mais inferior da escápula, onde as bordas medial e lateral se encontram<br>
+<strong>Referência vertebral:</strong> Situado ao nível da 7ª vértebra torácica (T7) quando o braço está ao lado do corpo<br>
+<strong>Palpação:</strong> Facilmente palpável; move-se durante os movimentos escapulares
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+A <strong>escápula alada</strong> (escápula alada) manifesta-se com projeção do ângulo inferior e da borda medial, causada por paralisia do músculo serrátil anterior (lesão do nervo torácico longo — C5-C7). Avaliada pedindo ao paciente para fazer uma flexão de braço contra a parede.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 10 — Fossa subescapular
+        (function() {
+            const opts = ['Fossa subescapular', 'Fossa coronóidea', 'Cavidade glenoidal da escápula', 'Sulco intertubercular'];
+            const correct = 'Fossa subescapular';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior1.png',
+                question: 'Qual é a estrutura indicada pelo número 10 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Fossa subescapular<br>
+<strong>Localização:</strong> Face anterior (costal/ventral) da escápula, voltada para as costelas<br>
+<strong>Origem muscular:</strong> Músculo subescapular — único componente anterior do manguito rotador<br>
+<strong>Características:</strong> Vasta depressão côncava com cristas diagonais para inserção das bandas musculares
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Lesão isolada do <strong>músculo subescapular</strong> (originado na fossa subescapular) é frequentemente subdiagnosticada. Causa fraqueza na rotação medial do ombro e instabilidade anterior. O <strong>sinal do belly-press</strong> positivo (incapacidade de manter a mão pressionada contra o abdome sem extensão do punho) é teste clínico diagnóstico.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 11 — Processo coracoide
+        (function() {
+            const opts = ['Processo coracoide', 'Acrômio', 'Tubérculo menor', 'Ângulo inferior'];
+            const correct = 'Processo coracoide';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior1.png',
+                question: 'Qual é a estrutura indicada pelo número 11 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Processo coracoide<br>
+<strong>Localização:</strong> Projeção anterior da escápula, curvada para cima e para frente como um "dedo dobrado"<br>
+<strong>Inserções musculares:</strong><br>
+&nbsp;&nbsp;• Músculo peitoral menor (inserção)<br>
+&nbsp;&nbsp;• Cabeça curta do músculo bíceps braquial (origem)<br>
+&nbsp;&nbsp;• Músculo coracobraquial (origem)<br>
+<strong>Ligamentos:</strong> Coracoclavicular (trapezoide e cônoide) e coracoacromial
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+A <strong>síndrome do impacto coracoide</strong> ocorre quando a cabeça do úmero comprime os tecidos moles entre ela e o processo coracoide, causando dor anterior no ombro. O <strong>espaço coracoumeral</strong> (normal ≥ 8mm) é avaliado na ressonância magnética. Fraturas do processo coracoide são raras mas ocorrem em luxações acromioclaviculares graves.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 2 — Escápula e Úmero (vista posterior/lateral)
+        // Estruturas: 1-Clavícula (cortada) | 2-Incisura da escápula | 3-Ângulo superior
+        //             4-Fossa supraespinal | 5-Espinha da escápula | 6-Fossa infraespinal
+        //             7-Epicôndilo medial | 8-Tróclea do úmero | 9-Fossa do olécrano
+        //             10-Tuberosidade para o deltóide | 11-Cabeça do úmero
+        // ========================================
+
+        // Questão 1 — Clavícula (cortada)
+        (function() {
+            const opts = ['Clavícula', 'Espinha da escápula', 'Acrômio', 'Ângulo superior'];
+            const correct = 'Clavícula';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior2.png',
+                question: 'Qual é a estrutura indicada pelo número 1 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Clavícula (seccionada na imagem)<br>
+<strong>Formato:</strong> Osso longo em forma de "S" itálico; único osso longo do corpo orientado horizontalmente<br>
+<strong>Articulações:</strong><br>
+&nbsp;&nbsp;• Medial: esternoclavicular (única ligação do membro superior ao esqueleto axial)<br>
+&nbsp;&nbsp;• Lateral: acromioclavicular<br>
+<strong>Função:</strong> Suporte e posicionamento do membro superior; proteção do feixe vasculonervoso subclávia
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+A <strong>fratura de clavícula</strong> é a fratura mais comum do cinto escapular (80% no terço médio). O fragmento lateral cai pelo peso do braço enquanto o medial é puxado superiormente pelo esternocleidomastoideo. Risco de lesão do plexo braquial e da veia subclávia. A aparência "em S" da clavícula é visível na inspeção.
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // Questão 2 — Incisura da escápula
+        (function() {
+            const opts = ['Incisura da escápula', 'Fossa supraespinal', 'Ângulo superior', 'Processo coracoide'];
+            const correct = 'Incisura da escápula';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior2.png',
+                question: 'Qual é a estrutura indicada pelo número 2 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Incisura da escápula (Incisura supraescapular)<br>
+<strong>Localização:</strong> Borda superior da escápula, medial à base do processo coracoide<br>
+<strong>Conteúdo:</strong><br>
+&nbsp;&nbsp;• <strong>Nervo supraescapular</strong> → passa <em>sob</em> o ligamento transverso superior da escápula<br>
+&nbsp;&nbsp;• <strong>Artéria supraescapular</strong> → passa <em>sobre</em> o ligamento (mnemônico: "o exército passa pelo túnel, o general passa por cima")<br>
+<strong>Fechamento:</strong> Ligamento transverso superior da escápula converte a incisura em forame
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Compressão do nervo supraescapular na incisura causa <strong>síndrome do nervo supraescapular</strong>: dor difusa posterior no ombro, fraqueza na abdução e rotação lateral, atrofia das fossas supra e infraespinal. O ligamento pode ossificar, estreitando o forame. Tratada com descompressão cirúrgica.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 3 — Ângulo superior
+        (function() {
+            const opts = ['Ângulo superior', 'Ângulo inferior', 'Espinha da escápula', 'Incisura da escápula'];
+            const correct = 'Ângulo superior';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior2.png',
+                question: 'Qual é a estrutura indicada pelo número 3 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Ângulo superior da escápula<br>
+<strong>Localização:</strong> Junção das bordas superior e medial da escápula<br>
+<strong>Referência vertebral:</strong> Nível de T2 quando o braço está ao lado do corpo<br>
+<strong>Inserção muscular:</strong> Músculo levantador da escápula (insere na borda medial e ângulo superior)<br>
+<strong>Comparação:</strong> Ângulo inferior situa-se em T7; ângulo superior em T2
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Tensão ou lesão do músculo levantador da escápula (inserido no ângulo superior) é causa comum de dor cervical-escapular, especialmente em pessoas que trabalham longamente com o computador. Dor referida à região do pescoço e ângulo superior da escápula é característica.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 4 — Fossa supraespinal
+        (function() {
+            const opts = ['Fossa supraespinal', 'Fossa infraespinal', 'Fossa subescapular', 'Fossa coronóidea'];
+            const correct = 'Fossa supraespinal';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior2.png',
+                question: 'Qual é a estrutura indicada pelo número 4 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Fossa supraespinal (Fossa supraespinhosa)<br>
+<strong>Localização:</strong> Face posterior da escápula, <em>acima</em> da espinha da escápula<br>
+<strong>Músculo originado:</strong> Supraespinhal — componente mais superior do manguito rotador<br>
+<strong>Inervação da fossa:</strong> Nervo supraescapular (passa pela incisura da escápula)<br>
+<strong>Distinção:</strong> Separada da fossa infraespinal pela espinha da escápula
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Atrofia muscular visível na fossa supraespinal sugere lesão do nervo supraescapular ou ruptura maciça do tendão supraespinhal. Na RM, sinal de gordura na fossa indica degeneração muscular avançada (<strong>infiltração gordurosa grau 3-4 de Goutallier</strong>), contraindicando reparo cirúrgico em alguns casos.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 5 — Espinha da escápula
+        (function() {
+            const opts = ['Espinha da escápula', 'Acrômio', 'Borda medial da escápula', 'Clavícula'];
+            const correct = 'Espinha da escápula';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior2.png',
+                question: 'Qual é a estrutura indicada pelo número 5 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Espinha da escápula<br>
+<strong>Localização:</strong> Crista horizontal saliente na face posterior da escápula; nível de T3<br>
+<strong>Trajeto:</strong> Parte da borda medial em sentido lateral e ascendente até o acrômio<br>
+<strong>Inserções musculares:</strong><br>
+&nbsp;&nbsp;• Trapézio (inserção — fibras médias e inferiores)<br>
+&nbsp;&nbsp;• Deltóide (origem — parte posterior)<br>
+<strong>Divisão:</strong> Separa a fossa supraespinal (acima) da fossa infraespinal (abaixo)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+A espinha da escápula é referência de palpação para o nível vertebral de T3 e marco para blocqueios nervosos. A <strong>incisura espinoglenóidea</strong> (base lateral da espinha) é local de compressão do nervo supraescapular — ramo para o infraespinhal — podendo causar atrofia isolada da fossa infraespinal (comum em voleibolistas).
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
+        // Questão 6 — Fossa infraespinal
+        (function() {
+            const opts = ['Fossa infraespinal', 'Fossa supraespinal', 'Fossa subescapular', 'Fossa do olécrano'];
+            const correct = 'Fossa infraespinal';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior2.png',
+                question: 'Qual é a estrutura indicada pelo número 6 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Fossa infraespinal (Fossa infraespinhosa)<br>
+<strong>Localização:</strong> Face posterior da escápula, <em>abaixo</em> da espinha da escápula; maior das fossas posteriores<br>
+<strong>Músculos originados:</strong><br>
+&nbsp;&nbsp;• <strong>Infraespinhal</strong> (porção medial e central da fossa)<br>
+&nbsp;&nbsp;• <strong>Redondo menor</strong> (porção lateral, junto à borda lateral da escápula)<br>
+&nbsp;&nbsp;• <strong>Redondo maior</strong> (ângulo inferior, mas não pertence ao manguito)<br>
+<strong>Inervação:</strong> Nervo supraescapular (infraespinhal) e nervo axilar (redondo menor)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Atrofia isolada da fossa infraespinal (infraespinhal poupando o supraespinhal) indica lesão do nervo supraescapular <em>distal</em> à incisura supraescapular — tipicamente na <strong>incisura espinoglenóidea</strong>, geralmente causada por cistos ganglionares associados a rupturas do lábio glenoidal posterior.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 7 — Epicôndilo medial
+        (function() {
+            const opts = ['Epicôndilo medial', 'Epicôndilo lateral', 'Tróclea do úmero', 'Capítulo do úmero'];
+            const correct = 'Epicôndilo medial';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior2.png',
+                question: 'Qual é a estrutura indicada pelo número 7 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Epicôndilo medial do úmero<br>
+<strong>Localização:</strong> Proeminência medial da extremidade distal do úmero; facilmente palpável<br>
+<strong>Origens musculares (flexores do antebraço e punho):</strong><br>
+&nbsp;&nbsp;• Pronador redondo, flexor radial do carpo, palmar longo, flexor ulnar do carpo, flexor superficial dos dedos<br>
+<strong>Estrutura relacionada:</strong> Sulco do nervo ulnar (posterior ao epicôndilo medial)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Epicondilite medial</strong> ("cotovelo do golfista") é tendinopatia dos músculos flexores-pronadores. O <strong>nervo ulnar</strong> passa no sulco posterior ao epicôndilo medial — compressão causa síndrome do túnel cubital (parestesia no 4º e 5º dedos). Fratura por avulsão do epicôndilo medial é comum em crianças com luxação do cotovelo.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 8 — Tróclea do úmero
+        (function() {
+            const opts = ['Tróclea do úmero', 'Capítulo do úmero', 'Epicôndilo medial', 'Fossa do olécrano'];
+            const correct = 'Tróclea do úmero';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior2.png',
+                question: 'Qual é a estrutura indicada pelo número 8 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Tróclea do úmero<br>
+<strong>Localização:</strong> Porção <em>medial</em> do côndilo do úmero (extremidade distal)<br>
+<strong>Formato:</strong> Em carola (poleia) — superfície em forma de roldana com sulco central<br>
+<strong>Articulação:</strong> Com a incisura troclear (semilunar) da ulna → articulação umeroulnar (dobradiça)<br>
+<strong>Extensão:</strong> Ao contrário do capítulo, a tróclea estende-se à face posterior do úmero<br>
+<strong>Comparação:</strong> Capítulo (lateral) articula com rádio; tróclea (medial) articula com ulna
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fraturas da tróclea (raras, isoladas) são mais comuns em adultos. Em crianças, fraturas do côndilo medial envolvendo a tróclea podem comprometer o nervo ulnar no sulco adjacente. O <strong>ângulo de carregamento</strong> (valgo fisiológico do cotovelo ~15°) é determinado pela obliquidade da tróclea.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // Questão 9 — Fossa do olécrano
+        (function() {
+            const opts = ['Fossa do olécrano', 'Fossa coronóidea', 'Fossa subescapular', 'Fossa infraespinal'];
+            const correct = 'Fossa do olécrano';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior2.png',
+                question: 'Qual é a estrutura indicada pelo número 9 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Fossa do olécrano (Fossa olecraneana)<br>
+<strong>Localização:</strong> Depressão na face <em>posterior</em> da extremidade distal do úmero, acima da tróclea<br>
+<strong>Função:</strong> Acomoda o processo do olécrano da ulna durante a extensão máxima do cotovelo<br>
+<strong>Comparação anatômica:</strong><br>
+&nbsp;&nbsp;• Fossa do olécrano → face posterior → recebe olécrano na extensão<br>
+&nbsp;&nbsp;• Fossa coronóidea → face anterior → recebe processo coronóide na flexão<br>
+<strong>Espessura:</strong> A parede entre as duas fossas pode ser muito fina (às vezes perfurada — forame supraepitroclear)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Fragmentos ósseos livres (corpos livres articulares) podem se alojar na fossa do olécrano, causando <strong>bloqueio na extensão do cotovelo</strong>. Osteófitos nesta região são comuns em arremessadores (beisebol, handebol) por impacto repetitivo do olécrano — <strong>síndrome do impacto posterior do cotovelo</strong>.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 10 — Tuberosidade para o músculo deltóide
+        (function() {
+            const opts = ['Tuberosidade deltóidea', 'Tubérculo maior', 'Tubérculo menor', 'Epicôndilo lateral'];
+            const correct = 'Tuberosidade deltóidea';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior2.png',
+                question: 'Qual é a estrutura indicada pelo número 10 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Tuberosidade deltóidea (Tuberosidade para o músculo deltóide)<br>
+<strong>Localização:</strong> Face ântero-lateral da diáfise do úmero, no terço médio<br>
+<strong>Inserção muscular:</strong> Músculo deltóide — todos os seus 3 feixes (anterior, médio e posterior)<br>
+<strong>Formato:</strong> Elevação rugosa em forma de "V" invertido, visível na face lateral do úmero<br>
+<strong>Relevância:</strong> Marco anatômico que divide a diáfise umeral em terço proximal e médio
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O <strong>nervo radial</strong> espirala ao redor da face posterior do úmero (sulco do nervo radial) passando lateralmente logo abaixo da tuberosidade deltóidea. Fraturas do terço médio do úmero nesta região têm alto risco de <strong>lesão do nervo radial</strong> (queda do punho — "wrist drop"), ocorrendo em 10–18% dos casos.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // Questão 11 — Cabeça do úmero
+        (function() {
+            const opts = ['Cabeça do úmero', 'Tubérculo maior', 'Capítulo do úmero', 'Cavidade glenoidal'];
+            const correct = 'Cabeça do úmero';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior2.png',
+                question: 'Qual é a estrutura indicada pelo número 11 na imagem?',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Estrutura:</strong> Cabeça do úmero<br>
+<strong>Localização:</strong> Extremidade proximal do úmero; porção esférica voltada medialmente, superiormente e posteriormente<br>
+<strong>Articulação:</strong> Com a cavidade glenoidal da escápula → articulação glenoumeral (esferóidea — maior amplitude de movimento do corpo)<br>
+<strong>Cobertura cartilaginosa:</strong> Representa ~1/3 de uma esfera; recoberta por cartilagem hialina<br>
+<strong>Colo anatômico:</strong> Sulco que separa a cabeça dos tubérculos (maior e menor)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Na <strong>luxação anterior do ombro</strong>, a cabeça umeral desloca-se anteriormente à cavidade glenoidal, podendo causar uma impressão na face póstero-lateral da cabeça — <strong>lesão de Hill-Sachs</strong>. Identificada na radiografia em rotação interna e na RM. Lesões grandes ("off-track") aumentam o risco de recidiva e podem necessitar de cirurgia óssea (Latarjet ou greffe ósseo).
+</p>
+</details>
+                `,
+                difficulty: 'fácil'
+            };
+        })(),
+
     ],
 
     coxaAnterior: [
@@ -2005,3 +2646,337 @@ try {
 } catch (e) {
     // fail-safe: ignora se ainda não carregou
 }
+
+// ============================================
+// QUESTÕES TEÓRICAS — MEMBROS SUPERIORES
+// ============================================
+quizData.superioresTeorico = [
+    {
+        question: 'Quais músculos compõem o manguito rotador?',
+        options: [
+            'Supraespinhal, infraespinhal, redondo menor e subescapular',
+            'Deltóide, supraespinhal, infraespinhal e redondo maior',
+            'Supraespinhal, infraespinhal, subescapular e coracobraquial',
+            'Redondo menor, redondo maior, subescapular e deltóide'
+        ],
+        answer: 0,
+        correctAnswer: 'Supraespinhal, infraespinhal, redondo menor e subescapular',
+        explanation: `
+<strong>Manguito Rotador — 4 múscu​los (mnemónico SIRS):</strong><br>
+&nbsp;&nbsp;• <strong>S</strong>upraespinhal → abdução (0–15°); insere no tubérculo maior<br>
+&nbsp;&nbsp;• <strong>I</strong>nfraespinhal → rotação lateral; insere no tubérculo maior<br>
+&nbsp;&nbsp;• <strong>R</strong>edondo menor → rotação lateral; insere no tubérculo maior<br>
+&nbsp;&nbsp;• <strong>S</strong>ubescapular → rotação medial; insere no tubérculo <em>menor</em><br>
+<strong>Função coletiva:</strong> Estabilização dinâmica da cabeça do úmero na cavidade glenoidal
+<details style="margin-top:10px;">
+<summary style="cursor:pointer;color:#007bff;font-weight:bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top:8px;padding:10px;background:#f8f9fa;border-left:3px solid #007bff;">
+O <strong>supraespinhal</strong> é o músculo mais comumente lesionado do manguito rotador (passagem pelo espaço subacromial). Rupturas parciais ou completas causam dor no arco de abdução entre 60–120° (<em>painful arc</em>) e fraqueza na abdução ativa.
+</p>
+</details>
+        `,
+        difficulty: 'fácil',
+        disabled: false
+    },
+    {
+        question: 'Qual músculo do manguito rotador se insere no tubérculo menor do úmero?',
+        options: [
+            'Supraespinhal',
+            'Infraespinhal',
+            'Redondo menor',
+            'Subescapular'
+        ],
+        answer: 3,
+        correctAnswer: 'Subescapular',
+        explanation: `
+<strong>Inserção no Tubérculo Menor:</strong> Músculo Subescapular — único do manguito rotador<br>
+<strong>Origem:</strong> Fossa subescapular (face anterior/costal da escápula)<br>
+<strong>Ação:</strong> Rotação medial e adução do braço; estabilização anterior do ombro<br>
+<strong>Inervação:</strong> Nervos subescapulares superior e inferior (C5-C6)<br>
+<strong>Os demais 3 músculos</strong> (supraespinhal, infraespinhal, redondo menor) inserem no tubérculo <strong>maior</strong>
+<details style="margin-top:10px;">
+<summary style="cursor:pointer;color:#007bff;font-weight:bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top:8px;padding:10px;background:#f8f9fa;border-left:3px solid #007bff;">
+Lesões isoladas do subescapular são frequentemente subdiagnosticadas. O <strong>sinal do belly-press</strong> e o <strong>sinal do lift-off (Gerber)</strong> avaliam seletivamente este músculo. Rupturas causam instabilidade anterior e dificuldade na rotação medial.
+</p>
+</details>
+        `,
+        difficulty: 'médio',
+        disabled: false
+    },
+    {
+        question: 'Em qual vértice da escápula encontra-se a cavidade glenoidal?',
+        options: [
+            'Ângulo superior',
+            'Ângulo inferior',
+            'Ângulo lateral',
+            'Ângulo medial'
+        ],
+        answer: 2,
+        correctAnswer: 'Ângulo lateral',
+        explanation: `
+<strong>Localização:</strong> Ângulo lateral (também chamado ângulo glenóideo) da escápula<br>
+<strong>A cavidade glenoidal</strong> é a superfície articular oval, voltada lateral e levemente anteriormente<br>
+<strong>Aprofundamento:</strong> Pelo lábio glenoidal (fibrocartilagem), que aumenta a congruência articular<br>
+<strong>Ângulos da escápula:</strong><br>
+&nbsp;&nbsp;• Superior: junção das bordas superior e medial<br>
+&nbsp;&nbsp;• Inferior: junção das bordas medial e lateral (nível T7)<br>
+&nbsp;&nbsp;• Lateral: onde se encontra a cavidade glenoidal e o processo coracoide
+<details style="margin-top:10px;">
+<summary style="cursor:pointer;color:#007bff;font-weight:bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top:8px;padding:10px;background:#f8f9fa;border-left:3px solid #007bff;">
+A rascidez da cavidade glenoidal (apenas 25–30% da cabeça umeral fica coberta) confere grande mobilidade ao ombro, mas o torna a articulação mais frequentemente luxada do corpo humano. A luxação anterior (>95% dos casos) lesa o lábio glenoidal anterior — <strong>lesão de Bankart</strong>.
+</p>
+</details>
+        `,
+        difficulty: 'médio',
+        disabled: false
+    },
+    {
+        question: 'Qual ligamento conecta o processo coracoide ao acrômio, formando o arco coracoacromial?',
+        options: [
+            'Ligamento coracoclavicular',
+            'Ligamento coracoacromial',
+            'Ligamento glenoumeral superior',
+            'Ligamento transverso da escápula'
+        ],
+        answer: 1,
+        correctAnswer: 'Ligamento coracoacromial',
+        explanation: `
+<strong>Ligamento Coracoacromial:</strong><br>
+<strong>Origem:</strong> Processo coracoide (borda lateral)<br>
+<strong>Inserção:</strong> Acrômio (borda anterior e ápice)<br>
+<strong>Função:</strong> Forma o <em>arco coracoacromial</em> — teto fibroósseo sobre a articulação do ombro<br>
+<strong>Conteúdo sob o arco:</strong> Tendão do supraespinhal, bursa subacromial, cabeça longa do bíceps<br>
+<strong>Diferença do coracoclavicular:</strong> Liga coracoide → clavícula (ligamento de suspensão da escápula)
+<details style="margin-top:10px;">
+<summary style="cursor:pointer;color:#007bff;font-weight:bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top:8px;padding:10px;background:#f8f9fa;border-left:3px solid #007bff;">
+Na <strong>síndrome do impacto subacromial</strong>, os tecidos moles são comprimidos contra este ligamento. Cirurgias de acromioplastia frequentemente incluem ressecção parcial do ligamento coracoacromial para ampliar o espaço subacromial.
+</p>
+</details>
+        `,
+        difficulty: 'médio',
+        disabled: false
+    },
+    {
+        question: 'Qual nervo inerva o músculo deltóide?',
+        options: [
+            'Nervo musculocutâneo',
+            'Nervo radial',
+            'Nervo axilar',
+            'Nervo supraescapular'
+        ],
+        answer: 2,
+        correctAnswer: 'Nervo axilar',
+        explanation: `
+<strong>Nervo Axilar (C5-C6):</strong><br>
+<strong>Origem:</strong> Feixe posterior do plexo braquial<br>
+<strong>Trajeto:</strong> Passa pelo espaço quadrangular (junto com artéria circunflexa posterior do úmero)<br>
+<strong>Músculos inervados:</strong><br>
+&nbsp;&nbsp;• Deltóide (todos os 3 feixes: anterior, médio e posterior)<br>
+&nbsp;&nbsp;• Redondo menor<br>
+<strong>Sensitivo:</strong> Nervo cutâneo lateral superior do braço (região do ombro)
+<details style="margin-top:10px;">
+<summary style="cursor:pointer;color:#007bff;font-weight:bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top:8px;padding:10px;background:#f8f9fa;border-left:3px solid #007bff;">
+Lesão do nervo axilar ocorre em <strong>luxações anteriores do ombro</strong> e fraturas do colo cirúrgico do úmero. Causa fraqueza na abdução (0–15° preservados pelo supraespinhal via nervo supraescapular) e hipoestesia no "distintivo militar" (região lateral do ombro).
+</p>
+</details>
+        `,
+        difficulty: 'médio',
+        disabled: false
+    },
+    {
+        question: 'O acrômio é uma projeção de qual osso?',
+        options: [
+            'Clavícula',
+            'Úmero',
+            'Escápula',
+            'Esterno'
+        ],
+        answer: 2,
+        correctAnswer: 'Escápula',
+        explanation: `
+<strong>Acrômio:</strong> Projeção lateral da <strong>espinha da escápula</strong><br>
+<strong>Formação:</strong> Curva-se anteriormente para formar o teto da articulação do ombro<br>
+<strong>Articulação:</strong> Com a clavícula → articulação acromioclavicular (AC)<br>
+<strong>Inserções:</strong> Deltóide (origem), trapézio (inserção)<br>
+<strong>Ossificação:</strong> Ossifica a partir de 2–3 centros secundários; falta de fusão → <em>os acromiale</em> (variante)
+<details style="margin-top:10px;">
+<summary style="cursor:pointer;color:#007bff;font-weight:bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top:8px;padding:10px;background:#f8f9fa;border-left:3px solid #007bff;">
+Lesões da articulação acromioclavicular são classificadas de I a VI (Rockwood). O <strong>os acromiale</strong> (centro de ossificação não fundido) pode simular fratura e causar impacto subacromial por instabilidade do fragmento.
+</p>
+</details>
+        `,
+        difficulty: 'fácil',
+        disabled: false
+    },
+    {
+        question: 'Qual estrutura passa pelo sulco intertubercular do úmero?',
+        options: [
+            'Nervo axilar',
+            'Tendão da cabeça longa do músculo bíceps braquial',
+            'Artéria braquial',
+            'Tendão do músculo supraespinhal'
+        ],
+        answer: 1,
+        correctAnswer: 'Tendão da cabeça longa do músculo bíceps braquial',
+        explanation: `
+<strong>Sulco Intertubercular (Sulco Bicipital):</strong><br>
+<strong>Conteúdo:</strong> Tendão da cabeça longa do músculo bíceps braquial<br>
+<strong>Estabilização:</strong> Ligamento transverso umeral (faixe de fibras entre os tubérculos) mantém o tendão no sulco<br>
+<strong>Bainha:</strong> O tendão é envolvido por uma bainha sinovial derivada da cápsula articular do ombro<br>
+<strong>Origem do tendão:</strong> Tubérculo supraglenoidal e lábio glenoidal superior
+<details style="margin-top:10px;">
+<summary style="cursor:pointer;color:#007bff;font-weight:bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top:8px;padding:10px;background:#f8f9fa;border-left:3px solid #007bff;">
+A <strong>tendinite bicipital</strong> causa dor anteriossuperior no ombro ao longo do sulco. O <strong>teste de Speed</strong> (dor na flexão resistida do ombro com cotovelo estendido e antebraço supinado) e o <strong>teste de Yergason</strong> (dor na supinação resistida) são positivos. Ruptura do tendão longo causa o sinal do "Popeye".
+</p>
+</details>
+        `,
+        difficulty: 'médio',
+        disabled: false
+    },
+    {
+        question: 'Qual nervo é responsável pela inervação do músculo supraespinhal?',
+        options: [
+            'Nervo axilar',
+            'Nervo supraescapular',
+            'Nervo musculocutâneo',
+            'Nervo subescapular superior'
+        ],
+        answer: 1,
+        correctAnswer: 'Nervo supraescapular',
+        explanation: `
+<strong>Nervo Supraescapular (C5-C6):</strong><br>
+<strong>Origem:</strong> Tronco superior do plexo braquial<br>
+<strong>Trajeto:</strong> Passa pela incisura da escápula (sob o ligamento transverso superior da escápula)<br>
+<strong>Músculos inervados:</strong><br>
+&nbsp;&nbsp;• Supraespinhal (inerva antes de passar pela incisura espinoglenóidea)<br>
+&nbsp;&nbsp;• Infraespinhal (inerva após contornar a espinha da escápula)<br>
+<strong>Sensitivo:</strong> Cápsula glenoumeral e acromioclavicular
+<details style="margin-top:10px;">
+<summary style="cursor:pointer;color:#007bff;font-weight:bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top:8px;padding:10px;background:#f8f9fa;border-left:3px solid #007bff;">
+Compressão do nervo supraescapular na incisura da escápula (p. ex. por cistos ganglionares, trauma) causa atrofia das fossas supra e infraescapulares com fraqueza na abdução e rotação lateral. Comum em voleibolistas (<em>síndrome do nervo supraescapular</em>).
+</p>
+</details>
+        `,
+        difficulty: 'difícil',
+        disabled: false
+    },
+    {
+        question: 'Em qual nível vertebral se projeta o ângulo inferior da escápula quando o braço está ao longo do corpo?',
+        options: [
+            'T4',
+            'T7',
+            'T10',
+            'T12'
+        ],
+        answer: 1,
+        correctAnswer: 'T7',
+        explanation: `
+<strong>Ângulo inferior da escápula → T7</strong><br>
+<strong>Referências escapulares úteis:</strong><br>
+&nbsp;&nbsp;• Espinho da escápula → T3<br>
+&nbsp;&nbsp;• Processo coracoide → nível da 1ª costela / clavícula medial<br>
+&nbsp;&nbsp;• Ângulo inferior → T7<br>
+<strong>Uso clínico:</strong> Referência para contar nervos intercostais, localizar dermatomas e vertebras torácicas no exame físico<br>
+<strong>Movimento:</strong> Rotação superior do ângulo inferior durante a abdução (ação do serrátil anterior)
+<details style="margin-top:10px;">
+<summary style="cursor:pointer;color:#007bff;font-weight:bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top:8px;padding:10px;background:#f8f9fa;border-left:3px solid #007bff;">
+A projeção do ângulo inferior é usada como ponto de referência na <strong>drenagem de derrames pleurais</strong> e na realização de bloqueios nervosos intercostais. Também é marco para avaliar simetria escapular no exame postural.
+</p>
+</details>
+        `,
+        difficulty: 'difícil',
+        disabled: false
+    },
+    {
+        question: 'Quais são os músculos que se originam no processo coracoide da escápula?',
+        options: [
+            'Peitoral maior, bíceps braquial (cabeça longa) e coracobraquial',
+            'Peitoral menor, bíceps braquial (cabeça curta) e coracobraquial',
+            'Subescapular, peitoral menor e bíceps braquial (cabeça curta)',
+            'Deltóide, coracobraquial e bíceps braquial (cabeça longa)'
+        ],
+        answer: 1,
+        correctAnswer: 'Peitoral menor, bíceps braquial (cabeça curta) e coracobraquial',
+        explanation: `
+<strong>Estruturas que se fixam no Processo Coracoide:</strong><br>
+<strong>Músculos (mnemônico: "Peitoral Bifurca Coracoide"):</strong><br>
+&nbsp;&nbsp;• <strong>Peitoral menor</strong> → inserção (vem do tórax)<br>
+&nbsp;&nbsp;• <strong>Bíceps braquial (cabeça curta)</strong> → origem<br>
+&nbsp;&nbsp;• <strong>Coracobraquial</strong> → origem<br>
+<strong>Ligamentos:</strong> Coracoclavicular (cônoide + trapezoide) e coracoacromial<br>
+<strong>Observação:</strong> A cabeça <em>longa</em> do bíceps origina-se no tubérculo supraglenoidal, não no coracoide
+<details style="margin-top:10px;">
+<summary style="cursor:pointer;color:#007bff;font-weight:bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top:8px;padding:10px;background:#f8f9fa;border-left:3px solid #007bff;">
+Na técnica cirúrgica de <strong>Latarjet</strong> (tratamento da instabilidade glenoumeral recorrente), o processo coracoide com suas inserções musculares (bíceps curto + coracobraquial) é transferido para a borda glenoidal anterior, aumentando o arco ósseo e criando um efeito de "sling" dinâmico.
+</p>
+</details>
+        `,
+        difficulty: 'difícil',
+        disabled: false
+    },
+    {
+        question: 'Qual fossa da escápula origina o músculo subescapular?',
+        options: [
+            'Fossa supraespinhal',
+            'Fossa infraespinhal',
+            'Fossa subescapular',
+            'Fossa coronóidea'
+        ],
+        answer: 2,
+        correctAnswer: 'Fossa subescapular',
+        explanation: `
+<strong>Fossa Subescapular:</strong><br>
+<strong>Localização:</strong> Face anterior (costal/ventral) da escápula, voltada para as costelas<br>
+<strong>Músculo originado:</strong> Subescapular — o único componente <em>anterior</em> do manguito rotador<br>
+<strong>Fossas posteriores da escápula</strong> (separadas pela espinha):<br>
+&nbsp;&nbsp;• <strong>Fossa supraespinhal</strong> (acima da espinha) → supraespinhal<br>
+&nbsp;&nbsp;• <strong>Fossa infraespinhal</strong> (abaixo da espinha) → infraespinhal<br>
+<strong>Nota:</strong> A fossa coronóidea pertence ao úmero (extremidade distal), não à escápula
+<details style="margin-top:10px;">
+<summary style="cursor:pointer;color:#007bff;font-weight:bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top:8px;padding:10px;background:#f8f9fa;border-left:3px solid #007bff;">
+Cistos ganglionares na <strong>incisura espinoglenóidea</strong> (frequentemente associados a lesões do lábio glenoidal posterior) podem comprimir o nervo supraescapular após seu ramo para o supraespinhal, causando atrofia <em>seletiva</em> da fossa infraespinhal com infraespinhal poupado.
+</p>
+</details>
+        `,
+        difficulty: 'médio',
+        disabled: false
+    },
+    {
+        question: 'Qual das alternativas descreve corretamente a articulação acromioclavicular?',
+        options: [
+            'Articulação sinovial do tipo esferóidea entre o acrômio e a escápula',
+            'Articulação sinovial do tipo plana (artrodia) entre o acrômio e a extremidade acromial da clavícula',
+            'Articulação fibrocartilaginosa entre o acrômio e o processo coracoide',
+            'Articulação em sela entre a clavícula e o manúbrio do esterno'
+        ],
+        answer: 1,
+        correctAnswer: 'Articulação sinovial do tipo plana (artrodia) entre o acrômio e a extremidade acromial da clavícula',
+        explanation: `
+<strong>Articulação Acromioclavicular (AC):</strong><br>
+<strong>Tipo:</strong> Sinovial plana (artrodia) — permite deslizamento<br>
+<strong>Ossos:</strong> Extremidade acromial da clavícula + acrômio da escápula<br>
+<strong>Estabilização:</strong><br>
+&nbsp;&nbsp;• Ligamento acromioclavicular (cápsula espessada)<br>
+&nbsp;&nbsp;• Ligamento coracoclavicular (cônoide + trapezoide) — principal estabilizador vertical<br>
+<strong>Disco articular:</strong> Frequentemente presente (variável, pode ser parcial ou ausente com a idade)
+<details style="margin-top:10px;">
+<summary style="cursor:pointer;color:#007bff;font-weight:bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top:8px;padding:10px;background:#f8f9fa;border-left:3px solid #007bff;">
+Lesões da articulação AC (<strong>classificação de Rockwood I-VI</strong>) são comuns em esportes de contato. Graus I-II: apenas ligamento AC lesado. Grau III: AC + coracoclavicular lesados → clavícula ascende. Graus IV-VI: deslocamentos graves com indicação cirúrgica.
+</p>
+</details>
+        `,
+        difficulty: 'difícil',
+        disabled: false
+    },
+];

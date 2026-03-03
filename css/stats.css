@@ -1,0 +1,48 @@
+#statsContent {
+    width: 100%;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e9ecef;
+}
+
+/* === Estatisticas: grafico de evolucao === */
+.stats-controls {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin: 0.5rem 0 1rem;
+}
+
+.stats-controls select {
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    border: 1px solid #dcdcdc;
+}
+
+.stats-chart-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    height: 300px;
+    margin-bottom: 1rem;
+}
+
+.stats-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0 1rem;
+}
+
+.stat-chip {
+    background: #eef2ff;
+    color: #1f2937;
+    border: 1px solid #e0e7ff;
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.9rem;
+}
