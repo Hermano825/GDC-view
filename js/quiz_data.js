@@ -2875,6 +2875,561 @@ O ancôneo é usado como <strong>retalho muscular pediculado</strong> em cirurgi
             };
         })(),
 
+        // ========================================
+        // IMAGEM 17 — Pronador Redondo (#1) e Pronador Quadrado (#2)
+        // ========================================
+        (function() {
+            const opts = ['Pronador redondo', 'Pronador quadrado', 'Braquiorradial', 'Flexor radial do carpo'];
+            const correct = 'Pronador redondo';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior17.png',
+                question: 'Identifique o músculo indicado pelo número 1 na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Pronador redondo<br>
+<strong>Origem:</strong> Cabeça umeral (epicôndilo medial) e cabeça ulnar (processo coronoide)<br>
+<strong>Inserção:</strong> Face lateral do rádio (tuberosidade pronadora)<br>
+<strong>Ação:</strong> Pronação do antebraço; flexão fraca do cotovelo<br>
+<strong>Inervação:</strong> Nervo mediano (C6-C7)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Síndrome do pronador redondo:</strong> compressão do nervo mediano entre as duas cabeças do músculo, causando parestesia nos dedos 1–3 e fraqueza de pinça. Diferencia-se da síndrome do túnel do carpo pela dor no antebraço proximal e ausência de sintomas noturnos. Tratamento conservador com fisioterapia; cirurgia em casos refratários.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        (function() {
+            const opts = ['Pronador quadrado', 'Pronador redondo', 'Supinador', 'Flexor profundo dos dedos'];
+            const correct = 'Pronador quadrado';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior17.png',
+                question: 'Identifique o músculo indicado pelo número 2 na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Pronador quadrado<br>
+<strong>Origem:</strong> Quarto distal da face anterior da ulna<br>
+<strong>Inserção:</strong> Quarto distal da face anterior do rádio<br>
+<strong>Ação:</strong> Pronação do antebraço (principal pronador)<br>
+<strong>Inervação:</strong> Nervo interósseo anterior (ramo do mediano) (C8-T1)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Síndrome do nervo interósseo anterior:</strong> lesão rara que afeta especificamente o pronador quadrado, flexor longo do polegar e flexor profundo dos dedos (índice/médio), causando fraqueza na pinça ("sinal do OK" anormal). Importante referência cirúrgica: o pronador quadrado é exposto na abordagem volar do rádio distal para fixação de fraturas.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 18 — Flexor Radial do Carpo
+        // ========================================
+        (function() {
+            const opts = ['Flexor radial do carpo', 'Flexor ulnar do carpo', 'Palmar longo', 'Pronador redondo'];
+            const correct = 'Flexor radial do carpo';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior18.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Flexor radial do carpo<br>
+<strong>Origem:</strong> Epicôndilo medial do úmero (epitróclea)<br>
+<strong>Inserção:</strong> Base do 2º e 3º metacarpos<br>
+<strong>Ação:</strong> Flexão e abdução (desvio radial) do punho<br>
+<strong>Inervação:</strong> Nervo mediano (C6-C7)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O tendão do flexor radial do carpo é usado como <strong>referência palpável no punho</strong> para localizar a artéria radial (lateralmente ao tendão). Na <strong>tenossinovite estenosante</strong>, causa dor e crepitação ao movimento do punho. Importante referência na abordagem cirúrgica volar do punho e carpo.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 19 — Palmar Longo
+        // ========================================
+        (function() {
+            const opts = ['Palmar longo', 'Flexor radial do carpo', 'Flexor ulnar do carpo', 'Pronador redondo'];
+            const correct = 'Palmar longo';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior19.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Palmar longo<br>
+<strong>Origem:</strong> Epicôndilo medial do úmero<br>
+<strong>Inserção:</strong> Aponeurose palmar<br>
+<strong>Ação:</strong> Flexão do punho; tensiona a aponeurose palmar<br>
+<strong>Inervação:</strong> Nervo mediano (C7-C8)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Músculo <strong>ausente em ~14% da população</strong> (variação anatômica comum, geralmente bilateral). Seu tendão é o <strong>enxerto mais colhido em cirurgia da mão</strong> para reconstrução de tendões (ex: ligamento cruzado, tendão de Aquiles). Identificado pela oponência do polegar com o 5º dedo + flexão do punho — o tendão torna-se proeminente medialmente ao flexor radial do carpo.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 20 — Flexor Ulnar do Carpo
+        // ========================================
+        (function() {
+            const opts = ['Flexor ulnar do carpo', 'Flexor radial do carpo', 'Palmar longo', 'Flexor superficial dos dedos'];
+            const correct = 'Flexor ulnar do carpo';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior20.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Flexor ulnar do carpo<br>
+<strong>Origem:</strong> Cabeça umeral (epicôndilo medial) e cabeça ulnar (olécrano e borda posterior da ulna)<br>
+<strong>Inserção:</strong> Pisiforme, hamato e base do 5º metacarpo<br>
+<strong>Ação:</strong> Flexão e adução (desvio ulnar) do punho<br>
+<strong>Inervação:</strong> Nervo ulnar (C7-T1)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O nervo ulnar passa <strong>profundamente ao arco fibroso do flexor ulnar do carpo</strong> (túnel cubital), sendo o segundo local mais comum de compressão do nervo ulnar. A <strong>síndrome do túnel cubital</strong> causa parestesia no 4º e 5º dedos e fraqueza da musculatura intrínseca da mão. Manobra de Tinel positiva sobre o epicôndilo medial.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 21 — Flexor Superficial dos Dedos
+        // ========================================
+        (function() {
+            const opts = ['Flexor superficial dos dedos', 'Flexor profundo dos dedos', 'Flexor longo do polegar', 'Flexor radial do carpo'];
+            const correct = 'Flexor superficial dos dedos';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior21.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Flexor superficial dos dedos<br>
+<strong>Origem:</strong> Epicôndilo medial, processo coronoide e linha oblíqua do rádio<br>
+<strong>Inserção:</strong> Falanges médias dos dedos 2–5 (duas bandejas laterais)<br>
+<strong>Ação:</strong> Flexão da falange média (articulação IFP) dos dedos 2–5; flexão da articulação MCF e punho<br>
+<strong>Inervação:</strong> Nervo mediano (C7-C8, T1)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Teste isolado:</strong> bloquear os outros dedos em extensão e pedir flexão do dedo testado — o FSD flexiona isoladamente a IFP. Na <strong>síndrome do túnel do carpo</strong>, os tendões do FSD (junto ao FPD) aumentam de volume e comprimem o nervo mediano. Lacerações de tendões na "zona 2" (bainha digital) apresentam pior prognóstico cirúrgico.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 22 — Flexor Profundo dos Dedos
+        // ========================================
+        (function() {
+            const opts = ['Flexor profundo dos dedos', 'Flexor superficial dos dedos', 'Flexor longo do polegar', 'Pronador quadrado'];
+            const correct = 'Flexor profundo dos dedos';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior22.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Flexor profundo dos dedos<br>
+<strong>Origem:</strong> Face anterior e medial da ulna e membrana interóssea<br>
+<strong>Inserção:</strong> Falanges distais dos dedos 2–5<br>
+<strong>Ação:</strong> Flexão da falange distal (articulação IFD) dos dedos 2–5<br>
+<strong>Inervação:</strong> Nervos mediano (dedos 2–3, via n. interósseo anterior) e ulnar (dedos 4–5)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Único músculo com dupla inervação (mediano + ulnar). <strong>Teste:</strong> bloquear a IFP em extensão e pedir flexão da IFD. A <strong>avulsão do FPD na falange distal</strong> ("jersey finger") ocorre ao agarrar uma camiseta durante tackle — cirurgia de reancoragem necessária. Origem dos músculos lumbricais.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 23 — Flexor Longo do Polegar
+        // ========================================
+        (function() {
+            const opts = ['Flexor longo do polegar', 'Flexor curto do polegar', 'Oponente do polegar', 'Flexor profundo dos dedos'];
+            const correct = 'Flexor longo do polegar';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior23.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Flexor longo do polegar<br>
+<strong>Origem:</strong> Face anterior do rádio e membrana interóssea<br>
+<strong>Inserção:</strong> Falange distal do polegar<br>
+<strong>Ação:</strong> Flexão da falange distal do polegar (articulação IF)<br>
+<strong>Inervação:</strong> Nervo interósseo anterior (ramo do mediano) (C8-T1)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Na <strong>síndrome do nervo interósseo anterior</strong>, a incapacidade de fletir a IF do polegar (junto ao IFD do indicador) resulta no "sinal do OK" anormal — o paciente forma um número zero em vez de círculo. <strong>Ruptura espontânea</strong> do tendão pode ocorrer em artrite reumatoide (síndrome de Mannerfelt) por erosão do escafoide.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 24 — Supinador
+        // ========================================
+        (function() {
+            const opts = ['Supinador', 'Pronador redondo', 'Braquiorradial', 'Extensor radial longo do carpo'];
+            const correct = 'Supinador';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior24.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Supinador<br>
+<strong>Origem:</strong> Epicôndilo lateral, ligamento colateral radial e crista do supinador da ulna<br>
+<strong>Inserção:</strong> Face lateral, anterior e posterior do terço proximal do rádio<br>
+<strong>Ação:</strong> Supinação do antebraço<br>
+<strong>Inervação:</strong> Nervo interósseo posterior (ramo profundo do radial) (C5-C6)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+O nervo interósseo posterior passa pelo <strong>Arcade de Frohse</strong> (borda proximal do supinador), local de compressão que causa paralisia dos extensores do punho e dedos sem déficit sensitivo — diferencia-se da lesão do radial no sulco espiral. Risco em fraturas do colo do rádio e cirurgias do cotovelo lateral.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 25 — Braquiorradial
+        // ========================================
+        (function() {
+            const opts = ['Braquiorradial', 'Extensor radial longo do carpo', 'Supinador', 'Pronador redondo'];
+            const correct = 'Braquiorradial';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior25.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Braquiorradial<br>
+<strong>Origem:</strong> Crista supracondilar lateral do úmero<br>
+<strong>Inserção:</strong> Processo estiloide do rádio<br>
+<strong>Ação:</strong> Flexão do cotovelo (mais eficiente com antebraço em posição neutra)<br>
+<strong>Inervação:</strong> Nervo radial (C5-C6)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer: color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Anomalia: único músculo do compartimento posterior (extensores) com função de <strong>flexão</strong>. É inervado pelo nervo radial antes de sua bifurcação — sua preservação em lesões do radial indica lesão distal à crista supracondilar. Forma o <strong>limite lateral do triângulo cubital</strong> e é referência cirúrgica para a artéria radial no terço distal do antebraço.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 26 — Extensor Radial Longo do Carpo
+        // ========================================
+        (function() {
+            const opts = ['Extensor radial longo do carpo', 'Extensor radial curto do carpo', 'Braquiorradial', 'Extensor dos dedos'];
+            const correct = 'Extensor radial longo do carpo';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior26.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Extensor radial longo do carpo<br>
+<strong>Origem:</strong> Crista supracondilar lateral do úmero<br>
+<strong>Inserção:</strong> Base do 2º metacarpo (face dorsal)<br>
+<strong>Ação:</strong> Extensão e abdução (desvio radial) do punho<br>
+<strong>Inervação:</strong> Nervo radial (C6-C7)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Juntamente com o extensor radial curto, percorre o <strong>2º compartimento extensor do punho</strong>. Na <strong>epicondilite lateral (cotovelo de tenista)</strong>, o ERLC e especialmente o ERCC são os tendões mais acometidos. Resiste ao impacto repetitivo de esportes de raquete e tarefas manuais com preensão.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 27 — Extensor Radial Curto do Carpo
+        // ========================================
+        (function() {
+            const opts = ['Extensor radial curto do carpo', 'Extensor radial longo do carpo', 'Extensor dos dedos', 'Supinador'];
+            const correct = 'Extensor radial curto do carpo';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior27.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Extensor radial curto do carpo<br>
+<strong>Origem:</strong> Epicôndilo lateral do úmero<br>
+<strong>Inserção:</strong> Base do 3º metacarpo (face dorsal)<br>
+<strong>Ação:</strong> Extensão do punho (ação principal na estabilização durante preensão)<br>
+<strong>Inervação:</strong> Nervo interósseo posterior / radial (C6-C7)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+<strong>Principal músculo envolvido na epicondilite lateral</strong> — sua origem no epicôndilo lateral é o local clássico de dor ao palpação e ao teste de extensão do punho com resistência (Teste de Cozen). Tratamento inclui repouso, fisioterapia excêntrica e, em casos crônicos, liberação cirúrgica da origem do ERCC.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 28 — Extensor dos Dedos
+        // ========================================
+        (function() {
+            const opts = ['Extensor dos dedos', 'Extensor do indicador', 'Extensor ulnar do carpo', 'Extensor radial curto do carpo'];
+            const correct = 'Extensor dos dedos';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior28.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Extensor dos dedos<br>
+<strong>Origem:</strong> Epicôndilo lateral do úmero<br>
+<strong>Inserção:</strong> Expansão extensora (capuz extensor) dos dedos 2–5<br>
+<strong>Ação:</strong> Extensão dos dedos 2–5 nas articulações MCF, IFP e IFD; extensão do punho<br>
+<strong>Inervação:</strong> Nervo interósseo posterior (C7-C8)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Percorre o <strong>4º compartimento extensor do punho</strong>. A <strong>ruptura do tendão extensor</strong> na falange distal causa "dedo em martelo" (mallet finger); na articulação IFP causa deformidade em botoeira. Em paralisia do nervo radial, a incapacidade de estender os dedos causa o clássico "punho caído" (wrist drop).
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 29 — Extensor Ulnar do Carpo
+        // ========================================
+        (function() {
+            const opts = ['Extensor ulnar do carpo', 'Flexor ulnar do carpo', 'Extensor dos dedos', 'Ancôneo'];
+            const correct = 'Extensor ulnar do carpo';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior29.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Extensor ulnar do carpo<br>
+<strong>Origem:</strong> Epicôndilo lateral e borda posterior da ulna<br>
+<strong>Inserção:</strong> Base do 5º metacarpo<br>
+<strong>Ação:</strong> Extensão e adução (desvio ulnar) do punho<br>
+<strong>Inervação:</strong> Nervo interósseo posterior (C7-C8)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Percorre o <strong>6º compartimento extensor</strong>, ao lado da cabeça ulnar. A <strong>subluxação do tendão</strong> do extensor ulnar do carpo ocorre por lesão da bainha retinacular durante movimentos bruscos de pronação-supinação com flexão ulnar (comum em golpes de tênis); causa estalido doloroso no punho ulnar. Envolvido em dor ulnar do punho em artrite reumatoide.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 30 — Abdutor Longo do Polegar
+        // ========================================
+        (function() {
+            const opts = ['Abdutor longo do polegar', 'Extensor curto do polegar', 'Extensor longo do polegar', 'Abdutor curto do polegar'];
+            const correct = 'Abdutor longo do polegar';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior30.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Abdutor longo do polegar<br>
+<strong>Origem:</strong> Face posterior do rádio, ulna e membrana interóssea<br>
+<strong>Inserção:</strong> Base do 1º metacarpo<br>
+<strong>Ação:</strong> Abdução e extensão do 1º metacarpo; desvio radial do punho<br>
+<strong>Inervação:</strong> Nervo interósseo posterior (C7-C8)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Junto com o extensor curto do polegar, percorre o <strong>1º compartimento extensor</strong>, local da <strong>tenossinovite de De Quervain</strong> — condição comum em novas mães e trabalhadores manuais. Dor na tabaqueira anatômica, teste de Finkelstein positivo. Tratamento: imobilização, corticoide local ou liberação cirúrgica do 1º compartimento.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 31 — Extensor Curto do Polegar
+        // ========================================
+        (function() {
+            const opts = ['Extensor curto do polegar', 'Abdutor longo do polegar', 'Extensor longo do polegar', 'Oponente do polegar'];
+            const correct = 'Extensor curto do polegar';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior31.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Extensor curto do polegar<br>
+<strong>Origem:</strong> Face posterior do rádio e membrana interóssea<br>
+<strong>Inserção:</strong> Falange proximal do polegar<br>
+<strong>Ação:</strong> Extensão da falange proximal do polegar e do 1º metacarpo<br>
+<strong>Inervação:</strong> Nervo interósseo posterior (C7-C8)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Percorre o <strong>1º compartimento extensor</strong> junto ao abdutor longo — ambos envolvidos na <strong>doença de De Quervain</strong>. Forma a <strong>borda anterior da tabaqueira anatômica</strong> (fossa entre o extensor curto e o extensor longo, onde se palpa o pulso radial e o escafoide). Dor à palpação da tabaqueira sugere fratura do escafoide.
+</p>
+</details>
+                `,
+                difficulty: 'médio'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 32 — Extensor Longo do Polegar
+        // ========================================
+        (function() {
+            const opts = ['Extensor longo do polegar', 'Extensor curto do polegar', 'Abdutor longo do polegar', 'Extensor do indicador'];
+            const correct = 'Extensor longo do polegar';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior32.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Extensor longo do polegar<br>
+<strong>Origem:</strong> Face posterior da ulna e membrana interóssea<br>
+<strong>Inserção:</strong> Falange distal do polegar<br>
+<strong>Ação:</strong> Extensão da falange distal e proximal do polegar; retropulsão (extensão) do polegar<br>
+<strong>Inervação:</strong> Nervo interósseo posterior (C7-C8)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Percorre o <strong>3º compartimento extensor</strong>, contornando o <strong>tubérculo dorsal do rádio (Lister)</strong>. A <strong>ruptura espontânea do tendão</strong> ocorre como complicação tardia de fraturas do rádio distal (mesmo sem deslocamento) por isquemia e erosão no tubérculo de Lister. Também ocorre em artrite reumatoide e uso prolongado de corticoides. Forma a borda posterior da tabaqueira anatômica.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
+        // ========================================
+        // IMAGEM 33 — Extensor do Indicador
+        // ========================================
+        (function() {
+            const opts = ['Extensor do indicador', 'Extensor dos dedos', 'Extensor do mínimo', 'Interósseo dorsal'];
+            const correct = 'Extensor do indicador';
+            const idx = Math.floor(Math.random() * opts.length);
+            [opts[0], opts[idx]] = [opts[idx], opts[0]];
+            return {
+                image: 'imagens/membros_superiores/membro superior33.png',
+                question: 'Identifique o músculo indicado na imagem:',
+                options: opts,
+                answer: opts.indexOf(correct),
+                correctAnswer: correct,
+                explanation: `
+<strong>Músculo:</strong> Extensor do indicador<br>
+<strong>Origem:</strong> Face posterior da ulna e membrana interóssea<br>
+<strong>Inserção:</strong> Expansão extensora do dedo indicador (2º dedo)<br>
+<strong>Ação:</strong> Extensão independente do indicador; extensão do punho<br>
+<strong>Inervação:</strong> Nervo interósseo posterior (C7-C8)
+<details style="margin-top: 10px;">
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">📋 Correlações Clínicas</summary>
+<p style="margin-top: 8px; padding: 10px; background-color: #f8f9fa; border-left: 3px solid #007bff;">
+Percorre o <strong>2º compartimento extensor</strong> junto ao extensor ulnar do carpo. Por permitir extensão <strong>independente</strong> do indicador, seu tendão é o mais utilizado em <strong>transferências tendinosas</strong> para reconstrução do polegar (substituindo o extensor longo do polegar roto). Avaliação clínica: pedir ao paciente que aponte com o indicador mantendo os outros dedos em flexão.
+</p>
+</details>
+                `,
+                difficulty: 'difícil'
+            };
+        })(),
+
     ],
 
     superioresVasosNervos: [],
