@@ -943,7 +943,19 @@ if (backHomeFromRegister) backHomeFromRegister.onclick = () => { showOnly(homeCo
 // Menu
 if (quizMenuBtn) quizMenuBtn.onclick = () => { updateCategoryCounts(); showOnly(categoryContainer); };
 if (statsMenuBtn) statsMenuBtn.onclick = () => { renderStats(); showOnly(statsContainer); };
-if (flashcardsMenuBtn) flashcardsMenuBtn.onclick = () => {
+if (flashcardsMenuBtn) flashcardsMenuBtn.onclick = async () => {
+    if (!(window.SB && window.SB.isReady())) {
+        showMessage('Supabase não está configurado para os flashcards.', '#d32f2f');
+        return;
+    }
+
+    const sbUser = await window.SB.getUser();
+    if (!sbUser) {
+        showOnly(loginContainer);
+        showMessage('Sua sessão do Supabase expirou. Faça login novamente para usar flashcards.', '#d32f2f');
+        return;
+    }
+
     showOnly(flashcardsContainer);
     if (window.FlashcardsApp && typeof window.FlashcardsApp.refresh === 'function') {
         window.FlashcardsApp.refresh();

@@ -17,7 +17,7 @@
     const code = String(err?.code || '').toUpperCase();
 
     if (message.includes('não autenticado') || message.includes('nao autenticado') || message.includes('jwt') || code === 'PGRST301') {
-      return 'Você precisa estar logado para usar os flashcards.';
+      return 'Você precisa estar logado no Supabase para usar os flashcards.';
     }
 
     if (code === '42P01' || message.includes('does not exist') || message.includes('relation') || message.includes('flash_')) {
