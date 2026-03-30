@@ -90,6 +90,7 @@ const forgotPasswordContainer = document.getElementById('forgotPasswordContainer
 const resetPasswordContainer = document.getElementById('resetPasswordContainer');
 const menuContainer = document.getElementById('menuContainer');
 const categoryContainer = document.getElementById('categoryContainer');
+const flashcardsContainer = document.getElementById('flashcardsContainer');
 const typeContainer = document.getElementById('typeContainer');
 const quantityContainer = document.getElementById('quantityContainer');
 const quizContainer = document.getElementById('quizContainer');
@@ -123,8 +124,10 @@ const backHomeFromRegister = document.getElementById('backHomeFromRegister');
 // Menu
 const quizMenuBtn = document.getElementById('quizMenuBtn');
 const statsMenuBtn = document.getElementById('statsMenuBtn');
+const flashcardsMenuBtn = document.getElementById('flashcardsMenuBtn');
 const logoutMenuBtn = document.getElementById('logoutMenuBtn');
 const settingsMenuBtn = document.getElementById('settingsMenuBtn');
+const backToMenuFromFlashcardsBtn = document.getElementById('backToMenuFromFlashcardsBtn');
 const userGreeting = document.getElementById('userGreeting');
 const totalAttempts = document.getElementById('totalAttempts');
 const bestScore = document.getElementById('bestScore');
@@ -667,7 +670,7 @@ function closeWarningModal() {
 // ========================================
 // Utilitarios de navegacao
 function showOnly(container) {
-    [homeContainer, loginContainer, registerContainer, forgotPasswordContainer, resetPasswordContainer, menuContainer, categoryContainer, superioresSubcategoryContainer, typeContainer, quantityContainer, quizContainer, statsContainer, adminPanelContainer].forEach(c => {
+    [homeContainer, loginContainer, registerContainer, forgotPasswordContainer, resetPasswordContainer, menuContainer, categoryContainer, flashcardsContainer, superioresSubcategoryContainer, typeContainer, quantityContainer, quizContainer, statsContainer, adminPanelContainer].forEach(c => {
         if (c) c.style.display = 'none';
     });
     if (container) container.style.display = 'flex';
@@ -940,10 +943,17 @@ if (backHomeFromRegister) backHomeFromRegister.onclick = () => { showOnly(homeCo
 // Menu
 if (quizMenuBtn) quizMenuBtn.onclick = () => { updateCategoryCounts(); showOnly(categoryContainer); };
 if (statsMenuBtn) statsMenuBtn.onclick = () => { renderStats(); showOnly(statsContainer); };
+if (flashcardsMenuBtn) flashcardsMenuBtn.onclick = () => {
+    showOnly(flashcardsContainer);
+    if (window.FlashcardsApp && typeof window.FlashcardsApp.refresh === 'function') {
+        window.FlashcardsApp.refresh();
+    }
+};
 if (settingsMenuBtn) settingsMenuBtn.onclick = () => { 
     openSettingsModal(); 
 };
 if (logoutMenuBtn) logoutMenuBtn.onclick = () => { logout(); };
+if (backToMenuFromFlashcardsBtn) backToMenuFromFlashcardsBtn.onclick = () => { showOnly(menuContainer); };
 
 // ========================================
 // CONFIGURACOES

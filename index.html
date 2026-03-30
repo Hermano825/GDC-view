@@ -143,6 +143,15 @@
                     <div class="card-arrow">→</div>
                 </div>
 
+                <div class="menu-card flashcards-card" id="flashcardsMenuBtn">
+                    <div class="card-icon">🗂️</div>
+                    <div class="card-content">
+                        <h3>Crie seu Flashcard</h3>
+                        <p>Monte seus próprios decks e cartões</p>
+                    </div>
+                    <div class="card-arrow">→</div>
+                </div>
+
                 <!-- Apenas para admin -->
                 <div class="menu-card" id="adminPanelBtn" style="display:none;">
                     <div class="card-icon">🛠️</div>
@@ -179,6 +188,77 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- ======================= -->
+        <!-- Flashcards -->
+        <!-- ======================= -->
+        <section id="flashcardsContainer" style="display:none;">
+            <h2>Crie seu Flashcard</h2>
+            <p style="text-align:center; margin-bottom:1rem; opacity:0.85;">
+                Monte seus decks de medicina com revisão espaçada e foco em imagem.
+            </p>
+
+            <div class="flashcards-overview">
+                <div class="flash-overview-card">
+                    <span class="flash-overview-label">Novos</span>
+                    <strong id="flashStatNew">0</strong>
+                </div>
+                <div class="flash-overview-card">
+                    <span class="flash-overview-label">Para Revisar</span>
+                    <strong id="flashStatDue">0</strong>
+                </div>
+                <div class="flash-overview-card">
+                    <span class="flash-overview-label">Aprendidos</span>
+                    <strong id="flashStatLearned">0</strong>
+                </div>
+            </div>
+
+            <div class="flashcards-grid">
+                <div class="auth-container flashcards-panel">
+                    <h3>Criar Deck</h3>
+                    <form id="createDeckForm" class="flash-form" autocomplete="off">
+                        <input type="text" id="flashSubjectInput" placeholder="Assunto (ex: Anatomia)" required>
+                        <input type="text" id="flashSubsubjectInput" placeholder="Sub-assunto (ex: Membro Superior)">
+                        <input type="text" id="flashDeckNameInput" placeholder="Nome do deck" required>
+                        <button type="submit" id="createDeckBtn">Criar deck</button>
+                    </form>
+                </div>
+
+                <div class="auth-container flashcards-panel">
+                    <h3>Criar Card</h3>
+                    <form id="createFlashcardForm" class="flash-form" autocomplete="off">
+                        <label for="flashDeckSelect">Deck</label>
+                        <select id="flashDeckSelect" required>
+                            <option value="">Selecione um deck</option>
+                        </select>
+
+                        <textarea id="cardFrontInput" rows="3" placeholder="Frente (aceita Markdown)" required></textarea>
+                        <textarea id="cardBackInput" rows="4" placeholder="Verso (aceita Markdown)" required></textarea>
+                        <input type="text" id="cardTagsInput" placeholder="Tags separadas por vírgula (ex: nervo, músculo)">
+
+                        <div id="imageDropzone" class="image-dropzone" tabindex="0">
+                            Arraste uma imagem aqui ou clique para escolher
+                            <input type="file" id="cardImageInput" accept="image/*" hidden>
+                        </div>
+                        <img id="imagePreview" class="image-preview" alt="Pré-visualização da imagem" style="display:none;">
+
+                        <button type="submit" id="createFlashcardBtn">Salvar flashcard</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="auth-container flashcards-panel" style="max-width:820px; width:100%;">
+                <div class="flashcards-panel-header">
+                    <h3>Seus Decks</h3>
+                    <button id="refreshFlashcardsBtn" type="button">Atualizar</button>
+                </div>
+                <div id="flashDeckList" class="flash-deck-list">
+                    <p class="flash-empty">Nenhum deck criado ainda.</p>
+                </div>
+            </div>
+
+            <button id="backToMenuFromFlashcardsBtn">Voltar ao Menu</button>
         </section>
         <!-- ======================= -->
         <!-- Fluxo do Quiz -->
@@ -552,8 +632,10 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="js/api_supabase.js"></script>
+    <script src="js/flashcards_srs.js"></script>
     <script src="js/quiz_data.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/flashcards_app.js"></script>
     <script defer src="/_vercel/insights/script.js"></script>
 
 </body>
