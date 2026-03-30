@@ -12,6 +12,21 @@
     console.log(msg);
   }
 
+  function explainFlashcardsError(err) {
+    const message = String(err?.message || '').toLowerCase();
+    const code = String(err?.code || '').toUpperCase();
+
+    if (message.includes('não autenticado') || message.includes('nao autenticado') || message.includes('jwt') || code === 'PGRST301') {
+      return 'Você precisa estar logado para usar os flashcards.';
+    }
+
+    if (code === '42P01' || message.includes('does not exist') || message.includes('relation') || message.includes('flash_')) {
+      return 'Aplique o schema de flashcards no Supabase para habilitar esta área.';
+    }
+
+    return err?.message || 'Erro inesperado ao carregar flashcards.';
+  }
+
   function getEls() {
     return {
       createDeckForm: document.getElementById('createDeckForm'),
@@ -174,7 +189,7 @@
       setOverviewStats(els, decks);
     } catch (err) {
       console.error('Erro ao carregar flashcards:', err);
-      notify('Aplique o schema de flashcards no Supabase para habilitar esta área.', '#d32f2f');
+      notify(explainFlashcardsError(err), '#d32f2f');
     }
   }
 
@@ -189,13 +204,19 @@
     };
 
     try {
+      const user = await window.SB.getUser();
+      if (!user) {
+        notify('Você precisa estar logado para criar deck.', '#d32f2f');
+        return;
+      }
+
       await window.SB.createFlashDeck(payload);
       els.createDeckForm.reset();
       notify('Deck criado com sucesso!');
       await refresh();
     } catch (err) {
       console.error('Falha ao criar deck:', err);
-      notify('Falha ao criar deck: ' + (err.message || 'tente novamente'), '#d32f2f');
+      notify('Falha ao criar deck: ' + explainFlashcardsError(err), '#d32f2f');
     }
   }
 
@@ -211,6 +232,12 @@
     const els = getEls();
 
     try {
+      const user = await window.SB.getUser();
+      if (!user) {
+        notify('Você precisa estar logado para salvar flashcard.', '#d32f2f');
+        return;
+      }
+
       let imageUrl = null;
       let imageMeta = {};
 
@@ -245,7 +272,7 @@
       await refresh();
     } catch (err) {
       console.error('Falha ao salvar flashcard:', err);
-      notify('Falha ao salvar flashcard: ' + (err.message || 'tente novamente'), '#d32f2f');
+      notify('Falha ao salvar flashcard: ' + explainFlashcardsError(err), '#d32f2f');
     }
   }
 
