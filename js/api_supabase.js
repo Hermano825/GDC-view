@@ -318,5 +318,127 @@ window.SB = {
     }
 
     return createdCard;
+  },
+  async listFlashcardsForStudy({ deckId, limit = 20 }) {
+    if (!window.supabaseClient) throw new Error('Supabase não configurado');
+    const { data: { user } } = await window.supabaseClient.auth.getUser();
+    if (!user) throw new Error('Não autenticado');
+
+    const maxItems = Math.max(1, Math.min(100, Number(limit || 20)));
+
+    const { data: cards, error: cardsError } = await window.supabaseClient
+      .from('flash_cards')
+      .select('id,deck_id,front_md,back_md,image_url,image_meta,is_suspended')
+      .eq('deck_id', deckId)
+      .eq('user_id', user.id)
+      .eq('is_suspended', false);
+    if (cardsError) throw cardsError;
+
+    if (!cards || cards.length === 0) return [];
+
+    const cardIds = cards.map(c => c.id);
+    let states = [];
+    if (cardIds.length > 0) {
+      const { data: st, error: stError } = await window.supabaseClient
+        .from('flash_review_state')
+        .select('card_id,due_at,interval_days,repetitions,ease_factor,lapses,total_reviews,last_grade,last_reviewed_at')
+        .in('card_id', cardIds);
+      if (stError) throw stError;
+      states = st || [];
+    }
+
+    const now = Date.now();
+    const stateById = new Map(states.map(s => [s.card_id, s]));
+
+    const due = [];
+    const learned = [];
+    const fresh = [];
+
+    for (const c of cards) {
+      const rs = stateById.get(c.id);
+      const normalized = {
+        id: c.id,
+        deck_id: c.deck_id,
+        front_md: c.front_md,
+        back_md: c.back_md,
+        image_url: c.image_url,
+        image_meta: c.image_meta || {},
+        review_state: rs || null,
+      };
+
+      if (!rs || Number(rs.total_reviews || 0) === 0) {
+        fresh.push(normalized);
+        continue;
+      }
+
+      if (new Date(rs.due_at).getTime() <= now) {
+        due.push(normalized);
+      } else {
+        learned.push(normalized);
+      }
+    }
+
+    due.sort((a, b) => new Date(a.review_state.due_at) - new Date(b.review_state.due_at));
+    fresh.sort((a, b) => a.id.localeCompare(b.id));
+    learned.sort((a, b) => new Date(a.review_state.due_at) - new Date(b.review_state.due_at));
+
+    return [...due, ...fresh, ...learned].slice(0, maxItems);
+  },
+  async submitFlashReview({ cardId, rating }) {
+    if (!window.supabaseClient) throw new Error('Supabase não configurado');
+    const { data: { user } } = await window.supabaseClient.auth.getUser();
+    if (!user) throw new Error('Não autenticado');
+
+    const { data: existing, error: stateError } = await window.supabaseClient
+      .from('flash_review_state')
+      .select('*')
+      .eq('card_id', cardId)
+      .maybeSingle();
+    if (stateError) throw stateError;
+
+    const prevState = existing ? {
+      dueAt: existing.due_at,
+      lastReviewedAt: existing.last_reviewed_at,
+      intervalDays: Number(existing.interval_days || 0),
+      repetitions: Number(existing.repetitions || 0),
+      easeFactor: Number(existing.ease_factor || 2.5),
+      lapses: Number(existing.lapses || 0),
+      totalReviews: Number(existing.total_reviews || 0),
+      lastGrade: existing.last_grade,
+    } : window.FlashSRS.createInitialReviewState();
+
+    const nextState = window.FlashSRS.calculateNextReview(prevState, rating);
+    const quality = window.FlashSRS.normalizeQuality(rating);
+
+    const { error: upsertError } = await window.supabaseClient
+      .from('flash_review_state')
+      .upsert({
+        card_id: cardId,
+        user_id: user.id,
+        due_at: nextState.dueAt,
+        last_reviewed_at: nextState.lastReviewedAt,
+        interval_days: nextState.intervalDays,
+        repetitions: nextState.repetitions,
+        ease_factor: nextState.easeFactor,
+        lapses: nextState.lapses,
+        total_reviews: nextState.totalReviews,
+        last_grade: nextState.lastGrade,
+      }, { onConflict: 'card_id' });
+    if (upsertError) throw upsertError;
+
+    const { error: logError } = await window.supabaseClient
+      .from('flash_review_log')
+      .insert({
+        card_id: cardId,
+        user_id: user.id,
+        grade: quality,
+        prev_interval_days: Number(prevState.intervalDays || 0),
+        next_interval_days: Number(nextState.intervalDays || 0),
+        prev_ease_factor: Number(prevState.easeFactor || 2.5),
+        next_ease_factor: Number(nextState.easeFactor || 2.5),
+      });
+    if (logError) throw logError;
+
+    return nextState;
   }
 };
