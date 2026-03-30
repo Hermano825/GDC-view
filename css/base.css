@@ -74,6 +74,23 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+button,
+a,
+input,
+select,
+textarea,
+.menu-card,
+.category-card,
+.quantity-card,
+.image-dropzone {
+    touch-action: manipulation;
+}
+
 /* Transicoes suaves para todas as secoes */
 section {
     animation: fadeIn 0.5s ease-out;

@@ -674,6 +674,7 @@ function showOnly(container) {
         if (c) c.style.display = 'none';
     });
     if (container) container.style.display = 'flex';
+    document.body.style.overflow = 'auto';
     messageContainer.textContent = '';
 }
 
