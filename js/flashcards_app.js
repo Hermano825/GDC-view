@@ -1,7 +1,9 @@
 (function () {
   const state = {
-    selectedImageBlob: null,
-    selectedImageMeta: null,
+    selectedFrontImageBlob: null,
+    selectedFrontImageMeta: null,
+    selectedBackImageBlob: null,
+    selectedBackImageMeta: null,
     studyCards: [],
     studyIndex: 0,
     studyRevealed: false,
@@ -34,6 +36,8 @@
   function getEls() {
     return {
       createDeckForm: document.getElementById('createDeckForm'),
+      flashTabButtons: document.querySelectorAll('.flash-tab-btn'),
+      flashTabPanels: document.querySelectorAll('.flash-tab-panel'),
       flashSubjectInput: document.getElementById('flashSubjectInput'),
       flashSubsubjectInput: document.getElementById('flashSubsubjectInput'),
       flashDeckNameInput: document.getElementById('flashDeckNameInput'),
@@ -46,6 +50,7 @@
       studyDeckName: document.getElementById('studyDeckName'),
       studyProgressFill: document.getElementById('studyProgressFill'),
       studyFront: document.getElementById('studyFront'),
+      studyFrontImage: document.getElementById('studyFrontImage'),
       studyBack: document.getElementById('studyBack'),
       studyImage: document.getElementById('studyImage'),
       showStudyAnswerBtn: document.getElementById('showStudyAnswerBtn'),
@@ -54,9 +59,12 @@
       cardFrontInput: document.getElementById('cardFrontInput'),
       cardBackInput: document.getElementById('cardBackInput'),
       cardTagsInput: document.getElementById('cardTagsInput'),
-      cardImageInput: document.getElementById('cardImageInput'),
-      imageDropzone: document.getElementById('imageDropzone'),
-      imagePreview: document.getElementById('imagePreview'),
+      frontImageInput: document.getElementById('frontImageInput'),
+      frontImageDropzone: document.getElementById('frontImageDropzone'),
+      frontImagePreview: document.getElementById('frontImagePreview'),
+      backImageInput: document.getElementById('backImageInput'),
+      backImageDropzone: document.getElementById('backImageDropzone'),
+      backImagePreview: document.getElementById('backImagePreview'),
       refreshFlashcardsBtn: document.getElementById('refreshFlashcardsBtn'),
       flashDeckList: document.getElementById('flashDeckList'),
       flashStatNew: document.getElementById('flashStatNew'),
@@ -152,6 +160,24 @@
       .replace(/\*(.*?)\*/g, '<em>$1</em>')
       .replace(/`([^`]+)`/g, '<code>$1</code>')
       .replace(/\n/g, '<br>');
+  }
+
+  function switchTab(tabName) {
+    const els = getEls();
+    els.flashTabButtons.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.tab === tabName);
+    });
+    els.flashTabPanels.forEach(panel => {
+      panel.classList.toggle('active', panel.id === `flashTab${tabName.charAt(0).toUpperCase() + tabName.slice(1)}`);
+    });
+  }
+
+  function bindTabs() {
+    const els = getEls();
+    if (!els.flashTabButtons || els.flashTabButtons.length === 0) return;
+    els.flashTabButtons.forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+    });
   }
 
   function fillDeckSelect(flashDeckSelect, decks) {
@@ -290,19 +316,30 @@
         return;
       }
 
-      let imageUrl = null;
-      let imageMeta = {};
+      let frontImageUrl = null;
+      let backImageUrl = null;
+      const imageMeta = {};
 
-      if (state.selectedImageBlob) {
-        imageMeta = state.selectedImageMeta || {};
-        imageUrl = await uploadCompressedImage(state.selectedImageBlob);
-
-        if (!imageUrl) {
-          imageUrl = await blobToDataUrl(state.selectedImageBlob);
-          imageMeta.storage = 'inline-data-url';
+      if (state.selectedFrontImageBlob) {
+        frontImageUrl = await uploadCompressedImage(state.selectedFrontImageBlob);
+        if (!frontImageUrl) {
+          frontImageUrl = await blobToDataUrl(state.selectedFrontImageBlob);
+          imageMeta.front_storage = 'inline-data-url';
         } else {
-          imageMeta.storage = 'supabase-storage';
+          imageMeta.front_storage = 'supabase-storage';
         }
+        imageMeta.front = state.selectedFrontImageMeta || {};
+      }
+
+      if (state.selectedBackImageBlob) {
+        backImageUrl = await uploadCompressedImage(state.selectedBackImageBlob);
+        if (!backImageUrl) {
+          backImageUrl = await blobToDataUrl(state.selectedBackImageBlob);
+          imageMeta.back_storage = 'inline-data-url';
+        } else {
+          imageMeta.back_storage = 'supabase-storage';
+        }
+        imageMeta.back = state.selectedBackImageMeta || {};
       }
 
       await window.SB.createFlashcard({
@@ -310,15 +347,21 @@
         frontMd: els.cardFrontInput.value,
         backMd: els.cardBackInput.value,
         tags: parseTags(els.cardTagsInput.value),
-        imageUrl,
+        imageUrl: backImageUrl,
+        frontImageUrl,
+        backImageUrl,
         imageMeta,
       });
 
       els.createFlashcardForm.reset();
-      state.selectedImageBlob = null;
-      state.selectedImageMeta = null;
-      els.imagePreview.src = '';
-      els.imagePreview.style.display = 'none';
+      state.selectedFrontImageBlob = null;
+      state.selectedFrontImageMeta = null;
+      state.selectedBackImageBlob = null;
+      state.selectedBackImageMeta = null;
+      els.frontImagePreview.src = '';
+      els.frontImagePreview.style.display = 'none';
+      els.backImagePreview.src = '';
+      els.backImagePreview.style.display = 'none';
 
       notify('Flashcard salvo com sucesso!');
       await refresh();
@@ -366,8 +409,17 @@
     els.studyAnswerPanel.style.display = 'none';
     els.showStudyAnswerBtn.style.display = 'inline-block';
 
-    if (current.image_url) {
-      els.studyImage.src = current.image_url;
+    if (current.front_image_url) {
+      els.studyFrontImage.src = current.front_image_url;
+      els.studyFrontImage.style.display = 'block';
+      els.studyFrontImage.loading = 'lazy';
+    } else {
+      els.studyFrontImage.src = '';
+      els.studyFrontImage.style.display = 'none';
+    }
+
+    if (current.back_image_url || current.image_url) {
+      els.studyImage.src = current.back_image_url || current.image_url;
       els.studyImage.style.display = 'block';
       els.studyImage.loading = 'lazy';
     } else {
@@ -468,56 +520,63 @@
     });
   }
 
-  async function setImage(file) {
+  async function setImage(file, side) {
     const els = getEls();
     if (!file) return;
 
     try {
       const { blob, meta } = await compressImage(file);
-      state.selectedImageBlob = blob;
-      state.selectedImageMeta = meta;
-
       const dataUrl = await blobToDataUrl(blob);
-      els.imagePreview.src = dataUrl;
-      els.imagePreview.style.display = 'block';
-      notify('Imagem pronta (' + Math.round(blob.size / 1024) + ' KB).');
+
+      if (side === 'front') {
+        state.selectedFrontImageBlob = blob;
+        state.selectedFrontImageMeta = meta;
+        els.frontImagePreview.src = dataUrl;
+        els.frontImagePreview.style.display = 'block';
+      } else {
+        state.selectedBackImageBlob = blob;
+        state.selectedBackImageMeta = meta;
+        els.backImagePreview.src = dataUrl;
+        els.backImagePreview.style.display = 'block';
+      }
+
+      notify('Imagem ' + (side === 'front' ? 'da frente' : 'do verso') + ' pronta (' + Math.round(blob.size / 1024) + ' KB).');
     } catch (err) {
       console.error('Erro de imagem:', err);
       notify('Não foi possível processar a imagem.', '#d32f2f');
     }
   }
 
-  function bindImageDropzone() {
-    const els = getEls();
-    if (!els.imageDropzone || !els.cardImageInput) return;
+  function bindImageDropzone(dropzone, input, side) {
+    if (!dropzone || !input) return;
 
-    els.imageDropzone.addEventListener('click', () => els.cardImageInput.click());
-    els.imageDropzone.addEventListener('keydown', (e) => {
+    dropzone.addEventListener('click', () => input.click());
+    dropzone.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        els.cardImageInput.click();
+        input.click();
       }
     });
 
-    els.cardImageInput.addEventListener('change', async (e) => {
+    input.addEventListener('change', async (e) => {
       const file = e.target.files && e.target.files[0];
-      if (file) await setImage(file);
+      if (file) await setImage(file, side);
     });
 
-    els.imageDropzone.addEventListener('dragover', (e) => {
+    dropzone.addEventListener('dragover', (e) => {
       e.preventDefault();
-      els.imageDropzone.classList.add('dragover');
+      dropzone.classList.add('dragover');
     });
 
-    els.imageDropzone.addEventListener('dragleave', () => {
-      els.imageDropzone.classList.remove('dragover');
+    dropzone.addEventListener('dragleave', () => {
+      dropzone.classList.remove('dragover');
     });
 
-    els.imageDropzone.addEventListener('drop', async (e) => {
+    dropzone.addEventListener('drop', async (e) => {
       e.preventDefault();
-      els.imageDropzone.classList.remove('dragover');
+      dropzone.classList.remove('dragover');
       const file = e.dataTransfer?.files?.[0];
-      if (file) await setImage(file);
+      if (file) await setImage(file, side);
     });
   }
 
@@ -531,7 +590,9 @@
       els.refreshFlashcardsBtn.addEventListener('click', refresh);
     }
 
-    bindImageDropzone();
+    bindTabs();
+    bindImageDropzone(els.frontImageDropzone, els.frontImageInput, 'front');
+    bindImageDropzone(els.backImageDropzone, els.backImageInput, 'back');
     bindStudyControls();
   }
 

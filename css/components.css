@@ -584,6 +584,44 @@ button:active::after {
     margin: 0;
 }
 
+.flash-tabs {
+    width: 100%;
+    max-width: 820px;
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.flash-tab-btn {
+    margin: 0;
+    background: #e2e8f0;
+    color: #0f172a;
+    box-shadow: none;
+    min-height: 42px;
+    padding: 0.6rem 1rem;
+}
+
+.flash-tab-btn:hover,
+.flash-tab-btn:focus {
+    background: #cbd5e1;
+    color: #0f172a;
+}
+
+.flash-tab-btn.active {
+    background: linear-gradient(135deg, #0ea5e9 0%, #14b8a6 100%);
+    color: #ffffff;
+}
+
+.flash-tab-panel {
+    display: none;
+    width: 100%;
+}
+
+.flash-tab-panel.active {
+    display: block;
+}
+
 .study-player {
     margin-top: 1rem;
     border: 1px solid #e2e8f0;

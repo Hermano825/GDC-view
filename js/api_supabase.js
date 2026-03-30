@@ -235,7 +235,16 @@ window.SB = {
       };
     });
   },
-  async createFlashcard({ deckId, frontMd, backMd, tags = [], imageUrl = null, imageMeta = {} }) {
+  async createFlashcard({
+    deckId,
+    frontMd,
+    backMd,
+    tags = [],
+    imageUrl = null,
+    frontImageUrl = null,
+    backImageUrl = null,
+    imageMeta = {}
+  }) {
     if (!window.supabaseClient) throw new Error('Supabase não configurado');
     const { data: { user } } = await window.supabaseClient.auth.getUser();
     if (!user) throw new Error('Não autenticado');
@@ -244,6 +253,12 @@ window.SB = {
     const back = (backMd || '').trim();
     if (!deckId || !front || !back) throw new Error('Deck, frente e verso são obrigatórios');
 
+    const mergedImageMeta = {
+      ...(imageMeta || {}),
+      ...(frontImageUrl ? { front_image_url: frontImageUrl } : {}),
+      ...(backImageUrl ? { back_image_url: backImageUrl } : {}),
+    };
+
     const { data: createdCard, error: cardError } = await window.supabaseClient
       .from('flash_cards')
       .insert({
@@ -251,8 +266,9 @@ window.SB = {
         deck_id: deckId,
         front_md: front,
         back_md: back,
-        image_url: imageUrl,
-        image_meta: imageMeta || {},
+        // image_url remains as the canonical back image for compatibility.
+        image_url: backImageUrl || imageUrl,
+        image_meta: mergedImageMeta,
       })
       .select('*')
       .single();
@@ -361,6 +377,8 @@ window.SB = {
         deck_id: c.deck_id,
         front_md: c.front_md,
         back_md: c.back_md,
+        front_image_url: c.image_meta?.front_image_url || null,
+        back_image_url: c.image_meta?.back_image_url || c.image_url || null,
         image_url: c.image_url,
         image_meta: c.image_meta || {},
         review_state: rs || null,
